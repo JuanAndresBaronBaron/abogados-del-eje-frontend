@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abogados del Eje — Firma Legal en Pereira, Risaralda</title>
+  <meta name="description" content="Abogados del Eje. Firma legal en Pereira, Risaralda. Derecho laboral, familia, civil, administrativo, accidentes de tránsito y responsabilidad civil." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A1628'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23C99662' font-family='Georgia'%3E%C2%A7%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Preloader ===== -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-word" aria-hidden="true">
+        <span>A</span><span>B</span><span>O</span><span>G</span><span>A</span><span>D</span><span>O</span><span>S</span>
+        <span class="loader-space">&nbsp;</span>
+        <span class="accent">D</span><span class="accent">E</span><span class="accent">L</span>
+        <span class="loader-space">&nbsp;</span>
+        <span>E</span><span>J</span><span>E</span>
+      </div>
+      <div class="loader-line"><div class="loader-line-fill" id="loaderBar"></div></div>
+    </div>
+    <div class="loader-curtain"></div>
+  </div>
+
+  <!-- ===== Scroll progress ===== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav-logo" data-magnetic>
+      <svg class="nav-logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <line x1="20" y1="6" x2="20" y2="34" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="6" y1="12" x2="34" y2="12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M2 22 a7 7 0 0 0 14 0 L9 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M24 22 a7 7 0 0 0 14 0 L31 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="14" y1="36" x2="26" y2="36" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Abogados <em>del Eje</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#areas" class="nav-link" data-magnetic>Áreas</a>
+      <a href="#firma" class="nav-link" data-magnetic>La Firma</a>
+      <a href="#contacto" class="nav-link" data-magnetic>Contacto</a>
+    </nav>
+    <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-nav" data-magnetic>
+      <span>Consulta tu caso</span>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== Mobile menu overlay ===== -->
+  <div class="menu-overlay" id="menuOverlay">
+    <nav class="menu-links" aria-label="Menú móvil">
+      <a href="#hero" class="menu-link">Inicio</a>
+      <a href="#areas" class="menu-link">Áreas de práctica</a>
+      <a href="#firma" class="menu-link">La Firma</a>
+      <a href="#contacto" class="menu-link">Contacto</a>
+    </nav>
+    <div class="menu-footer">
+      <a href="tel:+573153725973">315 372 5973</a>
+      <p>Calle 39 # 7-19, Piso 2 · Pereira</p>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><span class="eyebrow-line"></span>Firma legal · Pereira, Risaralda</p>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="line">Defendemos</span>
+          <span class="line">lo que es <em>justo.</em></span>
+        </h1>
+        <p class="hero-sub" id="heroSub">
+          Estrategia jurídica con rigor y cercanía para las personas
+          y empresas del Eje Cafetero.
+        </p>
+        <div class="hero-cta" id="heroCta">
+          <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-primary" data-magnetic>
+            <span>Agenda tu consulta</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#areas" class="btn btn-ghost" data-magnetic><span>Áreas de práctica</span></a>
+        </div>
+      </div>
+      <div class="hero-scroll" id="heroScroll">
+        <span>Desliza</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== MANIFESTO (scroll-bound word reveal) ===== -->
+    <section class="manifesto" id="manifesto">
+      <div class="manifesto-inner">
+        <p class="manifesto-label">Nuestra convicción</p>
+        <p class="manifesto-text" id="manifestoText">En Abogados del Eje creemos que cada caso merece rigor, estrategia y humanidad. Escuchamos primero, actuamos con precisión y acompañamos a nuestros clientes en cada etapa del proceso, hasta el final.</p>
+      </div>
+    </section>
+
+    <!-- ===== PRACTICE AREAS (pinned horizontal scroll) ===== -->
+    <section class="areas" id="areas">
+      <div class="areas-pin">
+        <div class="areas-head">
+          <p class="section-label"><span class="label-num">01</span> Áreas de práctica</p>
+          <h2 class="areas-title">Siete frentes.<br/><em>Una sola defensa.</em></h2>
+          <div class="areas-progress"><div class="areas-progress-fill" id="areasProgress"></div></div>
+        </div>
+        <div class="areas-track" id="areasTrack">
+          <article class="area-card">
+            <span class="area-num">01</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="16" width="32" height="22" rx="3"/><path d="M18 16v-4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4"/><path d="M8 26h32"/><path d="M22 24v4h4v-4"/></svg>
+            <h3>Laboral</h3>
+            <p>Despidos, liquidaciones, acoso laboral y reclamación de derechos. Defendemos tu trabajo con la firmeza que merece.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <article class="area-card">
+            <span class="area-num">02</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l4.5 9 10 1.5-7.2 7 1.7 9.9L24 28.7l-9 4.7 1.7-9.9-7.2-7 10-1.5z"/><path d="M14 42h20"/><path d="M24 34v8"/></svg>
+            <h3>Accidente laboral</h3>
+            <p>Indemnizaciones, incapacidades y pensiones por accidentes y enfermedades de origen laboral ante ARL y empleadores.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <article class="area-card">
+            <span class="area-num">03</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30l3-10a4 4 0 0 1 3.8-2.8h14.4A4 4 0 0 1 35 20l3 10"/><rect x="7" y="30" width="34" height="9" rx="2.5"/><circle cx="14" cy="39" r="3.4"/><circle cx="34" cy="39" r="3.4"/></svg>
+            <h3>Accidentes de tránsito</h3>
+            <p>Reclamación de perjuicios, seguros y conciliaciones. Recupera lo que perdiste tras un siniestro vial.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <article class="area-card">
+            <span class="area-num">04</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="14" r="5"/><circle cx="31" cy="14" r="5"/><path d="M7 38c0-6 4.5-10 10-10s10 4 10 10"/><path d="M27 30.5c1.3-1.6 3-2.5 4-2.5 5.5 0 10 4 10 10"/></svg>
+            <h3>Familia</h3>
+            <p>Divorcios, custodia, alimentos y sucesiones. Soluciones firmes con la sensibilidad que tu familia necesita.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <article class="area-card">
+            <span class="area-num">05</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v38"/><path d="M10 12h28"/><path d="M5 24a6.5 6.5 0 0 0 13 0l-6.5-12z"/><path d="M30 24a6.5 6.5 0 0 0 13 0L36.5 12z"/><path d="M16 43h16"/></svg>
+            <h3>Civil</h3>
+            <p>Contratos, propiedad, arrendamientos y cobro de obligaciones. Protegemos tu patrimonio en cada negocio.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <article class="area-card">
+            <span class="area-num">06</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 42V18l16-10 16 10v24"/><path d="M4 42h40"/><path d="M16 42V28h6v14M28 28h6v14"/></svg>
+            <h3>Administrativo</h3>
+            <p>Acciones contra entidades públicas, tutelas, nulidades y reparación directa. El Estado también responde.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <article class="area-card">
+            <span class="area-num">07</span>
+            <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l15 6v9c0 9.5-6.4 17.5-15 21-8.6-3.5-15-11.5-15-21v-9z"/><path d="M17 24l5 5 9-10"/></svg>
+            <h3>Responsabilidad civil</h3>
+            <p>Contractual y extracontractual: indemnización integral de daños y perjuicios causados por terceros.</p>
+            <span class="area-link">Consultar caso <i>→</i></span>
+          </article>
+          <div class="area-card area-card-end">
+            <h3>¿Tu caso no aparece aquí?</h3>
+            <p>Cuéntanos tu situación y te orientamos sin compromiso.</p>
+            <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-primary" data-magnetic><span>Escríbenos</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BALANZA (scroll-driven canvas drawing) ===== -->
+    <section class="balanza" id="balanza">
+      <div class="balanza-pin">
+        <canvas id="balanzaCanvas" aria-hidden="true"></canvas>
+        <div class="balanza-steps">
+          <div class="balanza-step" data-step="0">
+            <h3>Equilibrio</h3>
+            <p>Cada argumento se pesa. Cada prueba cuenta.</p>
+          </div>
+          <div class="balanza-step" data-step="1">
+            <h3>Precisión</h3>
+            <p>La estrategia correcta, en el momento correcto.</p>
+          </div>
+          <div class="balanza-step" data-step="2">
+            <h3>Justicia</h3>
+            <p>El resultado que mereces, defendido hasta el final.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LA FIRMA (sticky split + counters) ===== -->
+    <section class="firma" id="firma">
+      <div class="firma-grid">
+        <div class="firma-sticky">
+          <p class="section-label section-label-dark"><span class="label-num">02</span> La Firma</p>
+          <h2 class="firma-title">El eje de tu <em>tranquilidad</em> jurídica.</h2>
+          <p class="firma-sub">Una firma del Eje Cafetero que combina técnica jurídica de alto nivel con un trato directo y humano. Tu caso nunca es un expediente más.</p>
+          <a href="#contacto" class="btn btn-dark" data-magnetic><span>Conócenos</span></a>
+        </div>
+        <div class="firma-values">
+          <article class="value-card" data-reveal>
+            <span class="value-num">/01</span>
+            <h3>Estrategia</h3>
+            <p>Analizamos cada caso a fondo antes de dar el primer paso. Litigamos para ganar, negociamos cuando conviene.</p>
+          </article>
+          <article class="value-card" data-reveal>
+            <span class="value-num">/02</span>
+            <h3>Cercanía</h3>
+            <p>Hablamos claro, sin tecnicismos innecesarios. Sabrás en qué va tu proceso, siempre.</p>
+          </article>
+          <article class="value-card" data-reveal>
+            <span class="value-num">/03</span>
+            <h3>Transparencia</h3>
+            <p>Honorarios claros desde el inicio y expectativas realistas. Sin sorpresas, sin letra pequeña.</p>
+          </article>
+          <article class="value-card" data-reveal>
+            <span class="value-num">/04</span>
+            <h3>Compromiso</h3>
+            <p>Asumimos tu causa como propia. Cada actuación, cada audiencia, cada recurso: con dedicación total.</p>
+          </article>
+        </div>
+      </div>
+      <div class="stats" id="stats">
+        <div class="stat" data-reveal>
+          <span class="stat-num"><span data-count="7">0</span></span>
+          <span class="stat-label">Áreas de práctica</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat-num"><span data-count="100">0</span>%</span>
+          <span class="stat-label">Dedicación a tu caso</span>
+        </div>
+        <div class="stat" data-reveal>
+          <span class="stat-num"><span data-count="365">0</span></span>
+          <span class="stat-label">Días a tu lado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Tu defensa empieza hoy — Abogados del Eje — Tu defensa empieza hoy — Abogados del Eje — </span>
+        <span>Tu defensa empieza hoy — Abogados del Eje — Tu defensa empieza hoy — Abogados del Eje — </span>
+      </div>
+    </div>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="contacto" id="contacto">
+      <div class="contacto-inner">
+        <p class="section-label"><span class="label-num">03</span> Contacto</p>
+        <h2 class="contacto-title" data-reveal>Hablemos de <em>tu caso.</em></h2>
+        <p class="contacto-sub" data-reveal>La primera conversación es el primer paso hacia la solución. Escríbenos o visítanos en Pereira.</p>
+        <div class="contacto-grid">
+          <a href="tel:+573153725973" class="contact-card" data-reveal data-magnetic>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <h3>Llámanos</h3>
+            <p>315 372 5973</p>
+            <span class="contact-action">Llamar ahora →</span>
+          </a>
+          <a href="https://wa.me/573153725973?text=Hola%2C%20quiero%20una%20consulta%20con%20Abogados%20del%20Eje" target="_blank" rel="noopener" class="contact-card contact-card-featured" data-reveal data-magnetic>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 9.5c.5 2.5 3 5 5.5 5.5l1-1.5 2 1c-.5 1.5-1.5 2-3 2-3.5-.5-6.5-3.5-7-7 0-1.5.5-2.5 2-3l1 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <h3>WhatsApp</h3>
+            <p>Respuesta rápida a tu consulta</p>
+            <span class="contact-action">Escribir ahora →</span>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Calle+39+%23+7-19+Pereira+Risaralda" target="_blank" rel="noopener" class="contact-card" data-reveal data-magnetic>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Visítanos</h3>
+            <p>Calle 39 # 7-19, Piso 2<br/>Pereira, Risaralda</p>
+            <span class="contact-action">Ver en el mapa →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg class="nav-logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <line x1="20" y1="6" x2="20" y2="34" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="6" y1="12" x2="34" y2="12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M2 22 a7 7 0 0 0 14 0 L9 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M24 22 a7 7 0 0 0 14 0 L31 12 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="14" y1="36" x2="26" y2="36" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <p class="footer-name">Abogados <em>del Eje</em></p>
+        <p class="footer-tag">Firma legal · Pereira, Risaralda</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="tel:+573153725973">315 372 5973</a>
+        <p>Calle 39 # 7-19, Piso 2<br/>Pereira, Risaralda</p>
+      </div>
+      <div class="footer-col">
+        <h4>Áreas</h4>
+        <a href="#areas">Laboral</a>
+        <a href="#areas">Familia</a>
+        <a href="#areas">Civil y Administrativo</a>
+        <a href="#areas">Responsabilidad civil</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Abogados del Eje. Todos los derechos reservados.</p>
+      <button class="to-top" id="toTop" data-magnetic>Volver arriba ↑</button>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
