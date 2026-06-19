@@ -65,6 +65,17 @@ body::after {
 
 img, svg { display: block; }
 a { color: inherit; text-decoration: none; }
+
+/* Visually hidden but available to screen readers and crawlers */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 em { font-style: italic; }
 
@@ -393,6 +404,10 @@ em { font-style: italic; }
 .hero-title .line {
   display: block;
   overflow: hidden;
+  /* Breathing room so italic overhang / descenders never clip,
+     compensated by negative margin to keep the layout centered. */
+  padding: 0.04em 0.16em 0.14em;
+  margin: 0 -0.16em -0.1em;
 }
 .hero-title .word {
   display: inline-block;
@@ -404,10 +419,13 @@ em { font-style: italic; }
   background: var(--wood-grad);
   background-clip: text;
   -webkit-background-clip: text;
+  /* extra room so background-clip:text doesn't cut the italic glyph edges */
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
 }
 .hero-sub {
   max-width: 540px;
-  margin: clamp(24px, 4vh, 40px) auto 0;
+  margin: clamp(38px, 6.5vh, 60px) auto 0;
   font-size: clamp(1rem, 1.6vw, 1.18rem);
   font-weight: 300;
   color: var(--white-dim);

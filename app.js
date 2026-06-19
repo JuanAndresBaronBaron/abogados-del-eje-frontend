@@ -113,10 +113,21 @@ if (!isTouch && !prefersReduced) {
   const pos = { x: innerWidth / 2, y: innerHeight / 2 };
   const mouse = { x: pos.x, y: pos.y };
 
+  /* Keep the cursor hidden until the pointer actually moves, so it
+     doesn't sit parked in the middle of the page on load. */
+  let cursorShown = false;
+  gsap.set([cursor, dot], { opacity: 0 });
+
   window.addEventListener("mousemove", (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
     gsap.set(dot, { x: mouse.x, y: mouse.y });
+    if (!cursorShown) {
+      cursorShown = true;
+      pos.x = mouse.x;
+      pos.y = mouse.y;
+      gsap.to([cursor, dot], { opacity: 1, duration: 0.3 });
+    }
   });
   gsap.ticker.add(() => {
     pos.x += (mouse.x - pos.x) * 0.16;
@@ -351,9 +362,14 @@ if (!prefersReduced) {
   function draw() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
-    const scale = Math.min(w, h) / 480;
+    /* Reserve a band at the bottom for the step captions, then center
+       and size the scale within the remaining area so its base never
+       overlaps the "Justicia" / "Precisión" text. */
+    const reserve = Math.min(h * 0.32, 260);
+    const avail = h - reserve;
+    const scale = Math.min(w, avail) / 480;
     ctx.save();
-    ctx.translate(w / 2, h / 2 + 10 * scale);
+    ctx.translate(w / 2, avail / 2);
     ctx.scale(scale, scale);
 
     /* ambient glow grows as the drawing completes */
@@ -372,7 +388,9 @@ if (!prefersReduced) {
     ctx.shadowColor = "rgba(201, 150, 98, 0.55)";
     ctx.shadowBlur = 14 * progress;
 
-    let budget = TOTAL * Math.min(1, progress * 1.02);
+    /* Finish drawing the full (balanced) scale by ~60% scroll, so the
+       final "Justicia" caption is always shown over a complete graphic. */
+    let budget = TOTAL * Math.min(1, progress / 0.6);
     for (const s of SEGS) {
       if (budget <= 0) break;
       const L = segLen(s);
