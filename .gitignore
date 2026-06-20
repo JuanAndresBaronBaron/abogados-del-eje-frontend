@@ -10,3 +10,4 @@ Thumbs.db
 
 # Node (only relevant if tooling is added later)
 node_modules/
+deploy-cloudflare/
