@@ -11,7 +11,8 @@ No requiere build. Abre `index.html` directamente en el navegador, o sirve la ca
 npx serve .
 ```
 
-> Requiere conexión a internet (GSAP, Lenis y las fuentes se cargan por CDN).
+> GSAP y Lenis están en `vendor/` (servidos desde el propio dominio). Solo las fuentes se cargan desde Google Fonts.
+> Usa `npx serve .` (no abras el archivo directo): las rutas de scripts y estilos son absolutas.
 
 ## Stack
 
@@ -29,9 +30,13 @@ npx serve .
 5. **La Balanza** — scrollytelling: canvas que dibuja una balanza de la justicia a medida que se hace scroll, con 3 mensajes por etapas
 6. **La Firma** — columna sticky + tarjetas de valores + contadores animados
 7. **Contacto** — tarjetas de llamada, WhatsApp y mapa
-8. Extras: cursor personalizado, botones magnéticos, marquee infinito, barra de progreso de scroll, grain overlay, menú móvil, `prefers-reduced-motion` respetado
+8. **Cobertura** — mapa SVG de Colombia (Natural Earth, dominio público): presencial en Risaralda, Caldas y Quindío; virtual en el resto del país
+9. **Preguntas frecuentes** — acordeón animado
+10. **Temas** — oscuro, intermedio y claro (`html[data-theme]`), guardado en `localStorage`, con transición circular
+11. **Páginas de servicio** — una carpeta por servicio (`/abogado-laboral-pereira/`, etc.) con su propio SEO y datos estructurados
+12. Extras: cursor personalizado, botones magnéticos, marquee infinito, barra de progreso de scroll, grain overlay, menú móvil, `prefers-reduced-motion` respetado
 
 ## Datos de contacto usados
 
-- Tel/WhatsApp: 315 372 5973 (`wa.me/573153725973`)
+- Tel/WhatsApp: +57 315 372 5973 (`wa.me/573153725973`)
 - Dirección: Carrera 17A # 83-09, barrio La Villa, Pereira, Risaralda
