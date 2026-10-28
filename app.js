@@ -487,17 +487,17 @@ document.querySelectorAll("[data-count]").forEach((el) => {
     d.style.strokeDasharray = len;
     d.style.strokeDashoffset = len;
   });
-  gsap.set(deps, { fillOpacity: 0 });
+  gsap.set(deps, { fillOpacity: 0.15 });
   gsap.set([arcs, cities, hq], { opacity: 0 });
   gsap.set(cities, { scale: 0, transformOrigin: "center", transformBox: "fill-box" });
 
   const tl = gsap.timeline({
-    scrollTrigger: { trigger: map, start: "top 78%", once: true },
+    scrollTrigger: { trigger: map, start: "top 92%", once: true },
     onComplete: () => deps.forEach((d) => { d.style.strokeDasharray = ""; d.style.strokeDashoffset = ""; }),
   });
-  tl.to(deps, { strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut", stagger: { each: 0.025, from: "random" } })
-    .to(map.querySelectorAll(".is-virtual"), { fillOpacity: 1, duration: 0.9, stagger: { each: 0.015, from: "random" } }, "-=0.6")
-    .to(present, { fillOpacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.3")
+  tl.to(deps, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut", stagger: { each: 0.012, from: "random" } })
+    .to(map.querySelectorAll(".is-virtual"), { fillOpacity: 1, duration: 0.7, stagger: { each: 0.01, from: "random" } }, "-=0.7")
+    .to(present, { fillOpacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4")
     .fromTo(present, { scale: 1.12, transformOrigin: "center", transformBox: "fill-box" }, { scale: 1, duration: 1, ease: "elastic.out(1, 0.5)" }, "<")
     .to(hq, { opacity: 1, duration: 0.5 }, "-=0.6")
     .to(arcs, { opacity: 0.75, duration: 0.6, stagger: 0.08 }, "-=0.2")
