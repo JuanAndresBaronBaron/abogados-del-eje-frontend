@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("ade-theme")}catch(e){}if(t!=="dark"&&t!=="mid"&&t!=="light")t="dark";d.dataset.theme=t;d.classList.add("js")})();</script>
 
   <!-- ===== Primary SEO ===== -->
   <title>Abogados y Abogadas en Pereira y el Eje Cafetero | Abogados del Eje</title>
@@ -41,7 +42,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
@@ -111,13 +111,13 @@
       "@type": "OfferCatalog",
       "name": "Áreas de práctica",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho laboral", "description": "Despidos, liquidaciones, acoso laboral y reclamación de derechos." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accidente laboral", "description": "Indemnizaciones, incapacidades y pensiones por accidentes y enfermedades laborales." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accidentes de tránsito", "description": "Reclamación de perjuicios, seguros y conciliaciones tras un siniestro vial." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho de familia", "description": "Divorcios, custodia, alimentos y sucesiones." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho civil", "description": "Contratos, propiedad, arrendamientos y cobro de obligaciones." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho administrativo", "description": "Acciones contra entidades públicas, tutelas, nulidades y reparación directa." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Responsabilidad civil", "description": "Indemnización integral de daños y perjuicios, contractual y extracontractual." } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho laboral", "url": "https://abogadosdeleje.com/abogado-laboral-pereira/", "description": "Despidos, liquidaciones, acoso laboral y reclamación de derechos." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accidente laboral", "url": "https://abogadosdeleje.com/abogado-accidente-laboral-pereira/", "description": "Indemnizaciones, incapacidades y pensiones por accidentes y enfermedades laborales." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accidentes de tránsito", "url": "https://abogadosdeleje.com/abogado-accidentes-de-transito-pereira/", "description": "Reclamación de perjuicios, seguros y conciliaciones tras un siniestro vial." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho de familia", "url": "https://abogadosdeleje.com/abogado-de-familia-pereira/", "description": "Divorcios, custodia, alimentos y sucesiones." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho civil", "url": "https://abogadosdeleje.com/abogado-civil-pereira/", "description": "Contratos, propiedad, arrendamientos y cobro de obligaciones." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Derecho administrativo", "url": "https://abogadosdeleje.com/abogado-administrativo-pereira/", "description": "Acciones contra entidades públicas, tutelas, nulidades y reparación directa." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Responsabilidad civil", "url": "https://abogadosdeleje.com/abogado-responsabilidad-civil-pereira/", "description": "Indemnización integral de daños y perjuicios, contractual y extracontractual." } }
       ]
     },
     "availableLanguage": "es",
@@ -213,35 +213,50 @@
 
   <!-- ===== Navigation ===== -->
   <header class="nav" id="nav">
-    <a href="#hero" class="nav-logo" data-magnetic aria-label="Abogados del Eje — inicio">
-      <img src="assets/logo-light.png" alt="Abogados del Eje" class="nav-logo-img" width="438" height="246" />
+    <a href="#hero" class="nav-logo" data-magnetic aria-label="Abogados del Eje, inicio">
+      <img src="/assets/logo-light.png" alt="Abogados del Eje" class="nav-logo-img logo-for-dark" width="438" height="246" />
+      <img src="/assets/logo-dark.png" alt="" aria-hidden="true" class="nav-logo-img logo-for-light" width="438" height="246" />
     </a>
     <nav class="nav-links" aria-label="Principal">
-      <a href="#areas" class="nav-link" data-magnetic>Áreas</a>
+      <a href="#areas" class="nav-link" data-magnetic>Servicios</a>
       <a href="#firma" class="nav-link" data-magnetic>La Firma</a>
-      <a href="#preguntas" class="nav-link" data-magnetic>Preguntas</a>
+      <a href="#cobertura" class="nav-link" data-magnetic>Cobertura</a>
       <a href="#contacto" class="nav-link" data-magnetic>Contacto</a>
     </nav>
-    <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-nav" data-magnetic>
-      <span>Consulta tu caso</span>
-    </a>
-    <button class="nav-burger" id="navBurger" aria-label="Abrir menú">
-      <span></span><span></span>
-    </button>
+    <div class="nav-tools">
+      <div class="theme-switch" role="group" aria-label="Tema de color">
+        <span class="theme-thumb" aria-hidden="true"></span>
+        <button type="button" data-theme-set="dark" aria-pressed="false" aria-label="Tema oscuro" title="Oscuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+        <button type="button" data-theme-set="mid" aria-pressed="false" aria-label="Tema intermedio" title="Intermedio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+        <button type="button" data-theme-set="light" aria-pressed="false" aria-label="Tema claro" title="Claro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      </div>
+      <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-nav" data-magnetic><span>Consulta tu caso</span></a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuOverlay">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <!-- ===== Mobile menu overlay ===== -->
   <div class="menu-overlay" id="menuOverlay">
     <nav class="menu-links" aria-label="Menú móvil">
       <a href="#hero" class="menu-link">Inicio</a>
-      <a href="#areas" class="menu-link">Áreas de práctica</a>
+      <a href="#areas" class="menu-link">Servicios</a>
       <a href="#firma" class="menu-link">La Firma</a>
-      <a href="#preguntas" class="menu-link">Preguntas frecuentes</a>
+      <a href="#cobertura" class="menu-link">Cobertura</a>
+      <a href="#preguntas" class="menu-link">Preguntas</a>
       <a href="#contacto" class="menu-link">Contacto</a>
     </nav>
     <div class="menu-footer">
       <a href="tel:+573153725973">315 372 5973</a>
-      <p>Carrera 17A # 83-09, La Villa · Pereira</p>
+      <p>Carrera 17A # 83-09, barrio La Villa · Pereira</p>
+      <div class="menu-theme">
+      <div class="theme-switch" role="group" aria-label="Tema de color">
+        <span class="theme-thumb" aria-hidden="true"></span>
+        <button type="button" data-theme-set="dark" aria-pressed="false" aria-label="Tema oscuro" title="Oscuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+        <button type="button" data-theme-set="mid" aria-pressed="false" aria-label="Tema intermedio" title="Intermedio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+        <button type="button" data-theme-set="light" aria-pressed="false" aria-label="Tema claro" title="Claro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      </div>
+      </div>
     </div>
   </div>
 
@@ -254,20 +269,20 @@
       <div class="hero-content">
         <p class="hero-eyebrow"><span class="eyebrow-line"></span>Firma legal · Pereira, Risaralda</p>
         <h1 class="hero-title" id="heroTitle">
-          <span class="sr-only">Abogados en Pereira, Risaralda. </span>
+          <span class="sr-only">Abogados y abogadas en Pereira, Risaralda. </span>
           <span class="line">Defendemos</span>
           <span class="line">lo que es <em>justo.</em></span>
         </h1>
         <p class="hero-sub" id="heroSub">
-          Firma de abogados en Pereira, Risaralda. Estrategia jurídica con
-          rigor y cercanía para las personas y empresas del Eje Cafetero.
+          Abogados y abogadas en Pereira, Risaralda. Estrategia jurídica con
+          rigor y cercanía para personas y empresas del Eje Cafetero y de toda Colombia.
         </p>
         <div class="hero-cta" id="heroCta">
           <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-primary" data-magnetic>
-            <span>Agenda tu consulta</span>
+            <span class="shine" aria-hidden="true"></span><span>Agenda tu consulta</span>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#areas" class="btn btn-ghost" data-magnetic><span>Áreas de práctica</span></a>
+          <a href="#areas" class="btn btn-ghost" data-magnetic><span>Ver servicios</span></a>
         </div>
       </div>
       <div class="hero-scroll" id="heroScroll">
@@ -293,55 +308,55 @@
           <div class="areas-progress"><div class="areas-progress-fill" id="areasProgress"></div></div>
         </div>
         <div class="areas-track" id="areasTrack">
-          <article class="area-card">
+          <a class="area-card" href="/abogado-laboral-pereira/">
             <span class="area-num">01</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="16" width="32" height="22" rx="3"/><path d="M18 16v-4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4"/><path d="M8 26h32"/><path d="M22 24v4h4v-4"/></svg>
             <h3>Laboral</h3>
             <p>Despidos, liquidaciones, acoso laboral y reclamación de derechos. Defendemos tu trabajo con la firmeza que merece.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
-          <article class="area-card">
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
+          <a class="area-card" href="/abogado-accidente-laboral-pereira/">
             <span class="area-num">02</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l4.5 9 10 1.5-7.2 7 1.7 9.9L24 28.7l-9 4.7 1.7-9.9-7.2-7 10-1.5z"/><path d="M14 42h20"/><path d="M24 34v8"/></svg>
             <h3>Accidente laboral</h3>
             <p>Indemnizaciones, incapacidades y pensiones por accidentes y enfermedades de origen laboral ante ARL y empleadores.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
-          <article class="area-card">
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
+          <a class="area-card" href="/abogado-accidentes-de-transito-pereira/">
             <span class="area-num">03</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30l3-10a4 4 0 0 1 3.8-2.8h14.4A4 4 0 0 1 35 20l3 10"/><rect x="7" y="30" width="34" height="9" rx="2.5"/><circle cx="14" cy="39" r="3.4"/><circle cx="34" cy="39" r="3.4"/></svg>
             <h3>Accidentes de tránsito</h3>
             <p>Reclamación de perjuicios, seguros y conciliaciones. Recupera lo que perdiste tras un siniestro vial.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
-          <article class="area-card">
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
+          <a class="area-card" href="/abogado-de-familia-pereira/">
             <span class="area-num">04</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="14" r="5"/><circle cx="31" cy="14" r="5"/><path d="M7 38c0-6 4.5-10 10-10s10 4 10 10"/><path d="M27 30.5c1.3-1.6 3-2.5 4-2.5 5.5 0 10 4 10 10"/></svg>
             <h3>Familia</h3>
             <p>Divorcios, custodia, alimentos y sucesiones. Soluciones firmes con la sensibilidad que tu familia necesita.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
-          <article class="area-card">
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
+          <a class="area-card" href="/abogado-civil-pereira/">
             <span class="area-num">05</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v38"/><path d="M10 12h28"/><path d="M5 24a6.5 6.5 0 0 0 13 0l-6.5-12z"/><path d="M30 24a6.5 6.5 0 0 0 13 0L36.5 12z"/><path d="M16 43h16"/></svg>
             <h3>Civil</h3>
             <p>Contratos, propiedad, arrendamientos y cobro de obligaciones. Protegemos tu patrimonio en cada negocio.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
-          <article class="area-card">
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
+          <a class="area-card" href="/abogado-administrativo-pereira/">
             <span class="area-num">06</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 42V18l16-10 16 10v24"/><path d="M4 42h40"/><path d="M16 42V28h6v14M28 28h6v14"/></svg>
             <h3>Administrativo</h3>
             <p>Acciones contra entidades públicas, tutelas, nulidades y reparación directa. El Estado también responde.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
-          <article class="area-card">
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
+          <a class="area-card" href="/abogado-responsabilidad-civil-pereira/">
             <span class="area-num">07</span>
             <svg class="area-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l15 6v9c0 9.5-6.4 17.5-15 21-8.6-3.5-15-11.5-15-21v-9z"/><path d="M17 24l5 5 9-10"/></svg>
             <h3>Responsabilidad civil</h3>
             <p>Contractual y extracontractual: indemnización integral de daños y perjuicios causados por terceros.</p>
-            <span class="area-link">Consultar caso <i>→</i></span>
-          </article>
+            <span class="area-link">Ver servicio <i>→</i></span>
+          </a>
           <div class="area-card area-card-end">
             <h3>¿Tu caso no aparece aquí?</h3>
             <p>Cuéntanos tu situación y te orientamos sin compromiso.</p>
@@ -428,38 +443,115 @@
       </div>
     </div>
 
-    <!-- ===== COBERTURA + PREGUNTAS FRECUENTES (contenido indexable) ===== -->
+    <!-- ===== COBERTURA (mapa de Colombia) ===== -->
+    <section class="cobertura" id="cobertura" aria-labelledby="coberturaTitle">
+      <div class="cobertura-inner">
+        <div class="cobertura-text">
+          <p class="section-label"><span class="label-num">03</span> Cobertura</p>
+          <h2 class="cobertura-title" id="coberturaTitle">Presencial en el <em>Eje Cafetero</em>. Virtual en toda Colombia.</h2>
+          <p class="cobertura-sub">Somos una firma de abogados y abogadas con sede en Pereira, Risaralda. Atendemos en persona a clientes de Risaralda, Caldas y Quindío, y por videollamada y WhatsApp a personas y empresas de cualquier ciudad del país.</p>
+          <div class="legend">
+            <div class="legend-item" data-focus="present" tabindex="0">
+              <span class="legend-swatch legend-swatch-present" aria-hidden="true"></span>
+              <div>
+                <h3>Atención presencial</h3>
+                <p><strong>Risaralda, Caldas y Quindío.</strong> Pereira, Dosquebradas, Santa Rosa de Cabal, Armenia, Manizales y municipios cercanos. Oficina en la Carrera 17A # 83-09, barrio La Villa, Pereira.</p>
+              </div>
+            </div>
+            <div class="legend-item" data-focus="virtual" tabindex="0">
+              <span class="legend-swatch legend-swatch-virtual" aria-hidden="true"></span>
+              <div>
+                <h3>Atención virtual</h3>
+                <p><strong>El resto de Colombia.</strong> Bogotá, Medellín, Cali, Barranquilla, Cartagena, Bucaramanga y cualquier otra ciudad, por videollamada, WhatsApp y correo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <svg class="co-map" viewBox="-6 -6 472 644" role="img" aria-labelledby="mapTitle mapDesc" xmlns="http://www.w3.org/2000/svg">
+            <title id="mapTitle">Mapa de cobertura de Abogados del Eje en Colombia</title>
+            <desc id="mapDesc">Atención presencial en Risaralda, Caldas y Quindío (Eje Cafetero) con oficina en Pereira; atención virtual en todos los demás departamentos de Colombia.</desc>
+            <defs>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#E9C88F"/><stop offset=".45" stop-color="#C99662"/><stop offset="1" stop-color="#8A5A2B"/>
+              </linearGradient>
+              <pattern id="virtualHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect class="hatch-bg" width="6" height="6"/><line class="hatch-line" x1="0" y1="0" x2="0" y2="6"/></pattern>
+              <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <g class="map-deps">
+              <path class="dep is-virtual" d="M17.2,424.1L15.5,423.3L14.2,421.1L10.1,417.6L10.7,417.3L9.2,415.5L8.9,412.9L7.5,413.4L2.9,409.9L9.5,403.1L12.7,402.8L19.8,404.6L20.7,399.6L19.0,400.3L19.2,396.4L18.4,395.4L17.6,395.5L16.9,397.1L16.2,397.1L14.8,389.3L19.7,380.2L20.2,379.6L20.2,382.2L21.5,377.9L22.2,378.1L25.0,374.5L28.6,372.2L30.8,376.1L31.6,376.2L31.0,372.7L31.9,371.6L33.4,376.3L36.2,378.0L37.9,377.1L37.5,372.1L41.7,374.5L42.9,375.6L43.6,378.6L43.1,382.1L46.4,387.5L46.8,389.4L48.2,390.3L52.3,391.1L62.4,388.2L66.8,390.0L67.3,390.6L66.3,394.1L71.1,397.9L67.9,401.8L66.4,408.0L69.8,409.0L72.9,408.1L74.8,408.8L76.9,407.5L80.7,406.6L84.3,411.1L84.0,413.0L81.4,415.0L81.8,422.1L80.7,423.1L79.7,422.8L78.9,425.4L75.2,426.9L75.3,431.1L77.3,432.3L77.1,434.0L74.1,440.0L69.6,445.1L74.3,449.0L73.9,451.0L75.4,456.4L74.7,458.0L70.8,458.7L63.7,456.7L62.3,455.0L61.0,446.9L58.2,446.7L54.4,444.4L53.6,443.3L53.4,440.6L52.2,439.7L46.8,441.0L44.8,440.1L44.2,438.5L38.2,437.5L31.8,433.1L28.1,431.7L23.0,426.6L19.8,426.5L18.6,424.0L17.2,424.1ZM36.2,373.0L37.5,376.2L37.1,377.3L36.1,377.6L33.4,374.9L33.0,374.1L33.7,373.2L33.0,371.4L33.5,370.7L35.7,371.2L36.2,373.0Z" data-dep="narino"><title>Nariño: atención virtual</title></path>
+              <path class="dep is-virtual" d="M109.3,456.3L106.8,455.7L104.3,454.1L102.3,456.0L100.4,456.2L100.7,461.7L94.8,463.1L92.5,461.6L88.8,460.8L88.5,462.5L86.1,461.9L82.9,462.2L80.6,460.5L76.9,459.8L74.7,458.0L75.4,456.4L73.9,451.0L74.3,449.0L69.6,445.1L74.1,440.0L77.5,433.0L75.3,431.1L75.2,426.9L79.4,424.9L79.7,422.8L80.7,423.1L81.8,422.1L86.0,422.3L88.0,421.5L91.5,417.5L93.9,418.6L96.5,422.5L95.5,429.4L95.9,431.0L97.5,432.9L102.8,434.7L108.1,434.9L110.4,433.6L112.7,433.4L113.7,432.2L118.4,432.7L119.7,435.5L122.4,438.3L125.9,439.5L130.9,439.5L136.2,443.2L143.1,443.7L145.4,448.1L145.3,450.6L146.4,452.7L150.3,452.5L150.6,453.5L153.5,453.6L154.7,461.1L158.7,462.9L162.9,463.7L165.2,465.6L165.4,467.1L164.7,468.4L166.1,469.2L165.1,471.0L165.9,473.2L167.9,473.6L168.6,475.0L169.8,475.6L173.2,475.9L174.7,474.3L175.8,476.2L178.5,475.8L180.2,476.8L181.3,479.5L183.5,479.5L184.4,480.9L186.4,480.4L191.1,484.3L195.8,485.9L175.2,492.3L174.9,491.4L169.7,487.7L166.7,483.9L165.1,484.4L163.9,483.5L161.2,482.9L162.5,481.6L159.9,477.6L158.1,479.5L155.8,479.1L152.8,476.5L151.4,476.2L148.0,472.8L145.0,472.4L144.4,474.0L142.7,475.2L135.9,472.7L129.9,468.3L123.8,468.1L117.7,463.6L113.9,457.6L111.5,458.1L110.8,456.4L109.3,456.3Z" data-dep="putumayo"><title>Putumayo: atención virtual</title></path>
+              <path class="dep is-virtual" d="M61.0,151.9L62.5,149.9L62.3,148.5L64.5,147.7L64.8,146.7L67.4,150.6L68.3,153.5L73.1,156.3L76.6,161.7L79.1,162.5L80.0,165.7L80.0,169.6L78.4,172.1L77.7,175.8L75.0,178.1L74.0,177.9L74.3,179.9L73.8,180.2L79.3,185.5L83.1,188.3L90.0,196.2L95.6,199.4L96.9,202.5L97.0,206.6L95.5,209.8L90.4,208.5L85.4,209.1L84.7,210.0L85.9,212.2L85.6,214.6L84.7,215.4L82.9,215.2L79.6,216.5L80.4,219.5L79.7,220.5L80.6,220.6L81.1,221.7L82.1,220.9L82.2,222.5L83.5,222.9L82.4,223.8L82.5,225.1L83.5,225.1L84.0,226.6L86.5,228.7L85.9,229.9L86.6,230.5L85.8,231.0L86.6,233.3L86.1,235.6L87.1,236.1L89.2,240.2L90.7,240.8L102.9,239.6L106.3,240.3L107.8,245.5L108.9,246.9L111.8,247.7L112.0,249.4L110.9,252.9L112.7,257.0L112.3,260.2L114.3,262.6L112.9,264.1L112.4,267.2L109.7,268.9L109.1,271.1L109.2,272.7L112.3,277.7L113.1,282.9L110.7,285.4L109.6,288.4L104.8,293.1L104.1,296.2L100.0,299.9L98.9,305.9L95.5,307.0L97.4,309.7L97.4,312.7L99.5,314.1L99.2,314.8L96.5,316.5L94.4,319.5L91.5,319.3L88.1,321.8L82.5,320.1L80.2,317.0L76.1,317.7L72.7,314.8L69.9,315.1L69.0,312.6L69.7,311.7L66.0,311.6L64.1,308.6L65.6,305.0L66.8,304.0L66.1,304.0L66.6,296.1L67.4,297.1L67.6,296.1L66.6,295.1L66.4,293.5L68.9,295.3L66.6,290.9L65.8,291.2L65.5,289.7L64.6,278.6L65.6,275.1L64.3,270.2L63.3,269.8L63.3,269.2L64.3,269.2L63.3,266.9L61.3,265.5L59.8,265.4L59.4,266.1L57.6,265.4L60.2,262.0L63.4,260.7L66.1,261.2L66.6,259.4L68.8,258.0L69.3,256.8L69.3,254.8L66.8,250.7L65.3,245.8L64.8,246.9L60.4,239.8L60.5,235.8L63.0,237.9L64.3,235.6L64.4,233.7L63.6,232.3L64.6,231.7L65.1,232.2L64.3,230.2L65.6,225.7L63.0,223.0L63.2,220.9L61.2,219.9L58.4,222.0L58.6,220.2L56.3,215.9L53.4,213.9L52.5,215.1L52.6,211.4L54.1,210.3L53.7,208.8L52.5,206.6L52.5,207.7L45.0,200.6L47.9,191.6L50.3,191.3L51.2,189.6L49.9,186.0L50.0,183.0L50.9,182.5L53.1,184.3L55.6,189.3L56.8,189.7L65.8,183.0L64.3,180.5L67.3,175.7L72.4,174.3L71.0,172.7L69.9,168.3L66.7,162.7L64.5,161.2L63.9,157.3L62.7,155.0L60.3,154.3L61.0,151.9ZM62.3,315.9L62.6,314.9L64.4,314.4L65.1,313.4L66.8,314.2L67.9,313.7L67.4,314.9L65.4,314.3L62.3,315.9ZM65.3,311.7L68.4,312.0L67.2,313.5L66.1,312.5L61.1,312.7L58.1,314.3L58.2,313.0L59.8,311.9L62.2,312.0L61.2,310.9L62.5,310.9L61.6,310.7L63.0,309.6L62.2,309.4L62.5,308.9L65.3,311.7Z" data-dep="choco"><title>Chocó: atención virtual</title></path>
+              <path class="dep is-virtual" d="M450.1,427.4L449.3,427.2L448.8,424.3L449.8,413.6L448.1,407.3L442.6,398.9L439.8,393.1L438.2,391.8L436.1,391.2L430.3,394.4L421.8,404.5L417.8,406.1L415.2,405.8L413.9,404.7L411.0,398.6L408.5,397.4L407.9,395.9L404.6,402.8L405.8,403.1L406.2,405.0L407.9,405.3L408.1,406.3L409.0,406.8L364.5,406.9L357.5,404.9L346.3,407.4L338.4,404.6L334.2,400.7L335.9,396.2L336.5,391.9L340.5,388.4L338.9,386.0L338.0,385.7L333.2,387.0L329.7,386.8L328.9,388.0L325.1,386.6L321.9,387.3L321.5,386.1L317.1,384.2L315.0,380.0L312.4,376.6L306.3,373.9L326.0,364.8L329.8,361.2L329.4,357.9L330.5,356.7L328.8,355.9L332.7,351.7L334.2,352.1L334.3,350.5L335.5,351.4L335.0,348.7L336.0,348.2L334.7,346.0L335.8,343.4L337.8,343.1L338.3,340.9L337.2,339.4L339.9,339.3L341.7,340.1L343.1,338.2L344.3,337.8L345.3,339.2L346.0,338.1L350.7,337.8L353.1,339.1L353.5,336.8L354.9,335.9L355.2,333.1L360.0,332.3L361.6,333.4L365.5,332.4L366.4,332.8L367.3,331.8L370.6,333.6L370.9,334.6L372.5,333.8L373.8,334.5L374.3,336.2L376.2,334.5L379.1,335.1L380.1,332.6L381.2,333.3L383.4,332.5L385.0,333.2L384.8,331.8L387.3,331.5L387.5,330.1L389.4,329.2L391.1,329.8L393.4,328.8L394.7,329.3L396.2,327.4L398.7,326.4L398.5,324.9L401.2,324.5L402.0,322.8L401.3,321.8L401.8,320.9L405.1,321.5L405.7,323.7L408.1,322.6L408.3,324.5L409.3,324.3L411.7,321.4L413.3,323.3L414.6,321.7L415.2,324.0L417.0,323.2L419.7,324.5L421.2,324.5L424.5,320.8L426.0,320.3L426.6,324.3L428.4,327.8L428.9,330.5L430.3,331.7L432.4,331.5L433.8,332.2L437.4,340.2L441.1,343.1L440.9,344.7L437.7,349.1L435.6,349.9L421.2,363.3L420.5,366.9L421.7,365.5L424.4,364.9L426.7,366.3L429.1,366.0L430.3,367.4L431.0,370.6L433.8,371.2L434.9,373.0L439.8,377.3L440.4,378.7L445.4,381.7L446.0,383.8L444.4,386.5L445.9,390.6L448.2,392.6L447.6,396.8L450.0,400.4L453.2,408.9L453.5,412.1L455.0,415.1L455.0,417.9L456.9,420.7L456.2,423.0L457.2,425.5L450.1,427.4Z" data-dep="guainia"><title>Guainía: atención virtual</title></path>
+              <path class="dep is-virtual" d="M346.3,407.4L345.7,407.4L345.9,431.6L349.7,430.4L350.9,431.6L354.5,431.1L359.8,431.6L362.1,432.8L363.9,431.5L365.1,431.4L369.0,434.3L370.1,435.9L369.9,437.3L372.0,438.8L371.2,439.6L371.4,442.9L370.5,444.0L372.4,446.2L372.4,447.4L371.7,447.6L366.6,448.1L366.4,446.7L364.2,447.2L359.8,443.8L355.5,445.4L354.6,446.9L351.7,446.2L347.6,448.5L338.9,449.7L338.3,449.2L337.8,477.2L342.8,483.0L345.6,484.0L346.5,485.5L349.8,488.2L353.4,489.6L354.5,490.8L355.9,495.3L354.2,498.6L356.3,501.6L357.8,506.2L361.2,508.9L361.0,512.1L362.8,515.5L362.0,517.6L360.3,515.4L356.6,513.8L353.7,514.9L353.0,513.2L353.4,510.7L350.9,508.4L349.8,508.5L348.8,510.3L345.4,509.6L342.9,510.7L342.3,509.7L344.0,505.5L341.4,506.2L340.3,505.6L339.1,506.6L336.6,506.5L335.7,507.7L337.6,510.3L336.6,511.4L335.2,511.3L333.0,509.5L333.4,507.0L331.9,508.0L330.6,507.6L330.0,505.5L332.4,503.1L330.1,499.3L331.5,498.2L331.3,492.9L330.6,491.8L329.0,492.0L328.9,491.2L332.2,487.1L329.8,486.4L328.0,487.4L327.8,488.9L323.6,488.6L323.2,486.5L321.6,484.7L319.1,484.7L317.3,483.2L315.6,483.4L312.6,481.7L311.9,481.7L310.9,483.3L308.6,483.2L305.2,476.7L305.4,473.9L303.5,471.2L301.4,471.3L297.7,469.8L296.4,466.9L292.9,467.5L287.2,464.1L282.8,464.6L277.2,461.6L273.5,457.3L271.3,457.9L271.4,455.6L267.9,453.0L268.0,450.5L267.0,449.5L266.3,450.1L265.7,449.7L264.2,446.4L273.5,436.9L274.6,434.9L277.8,434.5L280.1,432.2L282.2,427.8L283.2,429.5L284.0,429.5L282.2,425.7L282.3,424.0L286.4,413.3L287.8,411.4L288.3,406.4L293.1,408.6L296.9,405.5L304.1,401.9L306.5,399.5L315.8,400.0L321.7,398.2L323.7,396.9L332.8,395.3L336.4,392.6L335.9,396.2L334.3,400.1L334.5,401.3L340.3,405.6L346.3,407.4Z" data-dep="vaupes"><title>Vaupés: atención virtual</title></path>
+              <path class="dep is-virtual" d="M362.0,517.6L361.5,524.4L341.6,629.7L339.2,625.7L333.3,621.9L332.2,618.0L328.7,614.4L326.2,614.0L323.9,615.9L322.0,616.3L312.9,612.7L338.4,572.8L336.8,569.7L336.4,569.4L334.7,571.0L333.4,569.2L331.5,569.4L330.1,566.4L329.3,566.0L326.7,566.9L326.3,565.9L327.2,565.4L327.0,564.2L323.7,564.7L322.2,562.9L318.7,561.2L317.9,562.7L316.1,562.9L313.9,558.3L310.9,557.5L306.5,553.9L302.1,553.4L301.8,555.9L298.4,555.4L297.6,555.8L296.9,557.6L295.1,558.7L293.5,558.2L291.4,559.0L291.1,558.5L287.2,560.1L286.8,559.3L287.5,558.2L285.9,555.6L285.0,556.0L284.3,557.8L282.8,554.4L277.6,552.4L275.6,553.1L275.0,551.0L271.7,552.7L267.4,558.1L263.2,558.0L258.9,561.4L256.1,560.8L255.0,561.2L254.9,562.2L251.4,562.9L249.0,561.2L244.5,560.3L241.4,558.5L240.0,561.2L238.9,561.8L238.1,559.8L237.0,561.1L235.4,560.1L230.5,561.9L228.6,558.6L226.0,557.2L225.0,558.9L224.4,557.8L222.2,557.0L220.7,553.3L224.0,548.8L221.8,544.5L222.2,542.1L220.9,539.9L221.2,538.5L218.9,536.4L218.1,537.5L216.3,537.2L215.0,538.2L213.7,537.1L211.7,537.0L209.0,534.7L208.3,533.8L208.4,532.4L210.0,530.0L209.5,526.5L206.7,524.2L206.3,523.6L207.1,522.5L206.0,521.5L204.3,518.2L200.7,516.7L199.9,515.5L198.1,517.0L195.6,516.2L193.7,512.9L191.4,512.6L191.4,511.1L190.1,512.0L189.3,511.6L187.9,508.3L187.3,509.4L186.3,509.4L180.8,507.6L177.9,503.3L179.9,502.5L179.4,500.6L177.9,500.2L176.3,498.2L177.1,496.5L175.2,492.3L195.8,485.9L199.3,486.4L201.4,485.7L203.8,486.8L204.0,488.2L205.8,488.5L207.4,490.7L213.6,491.1L215.7,490.2L220.4,493.8L221.9,494.0L225.1,493.4L228.2,490.9L232.4,493.7L237.5,492.1L243.4,496.4L245.0,496.8L247.6,493.4L249.8,492.0L253.4,494.8L255.1,494.5L256.5,493.2L256.8,488.7L260.7,483.4L265.1,480.5L271.3,480.4L274.0,479.6L277.2,474.4L288.4,468.7L290.9,466.2L293.5,467.6L296.4,466.9L297.7,469.8L301.4,471.3L303.5,471.2L305.4,473.9L305.2,476.7L308.6,483.2L310.9,483.3L311.9,481.7L312.6,481.7L315.6,483.4L317.3,483.2L319.1,484.7L321.6,484.7L323.2,486.5L323.6,488.6L327.8,488.9L328.0,487.4L329.8,486.4L332.2,487.1L328.9,491.2L329.0,492.0L331.2,492.3L331.5,498.2L330.1,499.3L332.4,503.1L329.9,506.1L331.3,508.2L333.4,507.0L333.0,509.5L335.2,511.3L336.6,511.4L337.6,510.3L335.7,507.7L336.6,506.5L339.1,506.6L340.3,505.6L341.4,506.2L344.0,505.5L342.3,509.7L342.9,510.7L345.4,509.6L348.8,510.3L349.8,508.5L350.9,508.4L353.4,510.7L353.4,514.6L356.6,513.8L360.3,515.4L362.0,517.6Z" data-dep="amazonas"><title>Amazonas: atención virtual</title></path>
+              <path class="dep is-virtual" d="M290.7,28.0L289.6,28.0L286.1,30.1L265.9,35.6L255.5,54.0L252.8,53.8L246.9,55.3L244.0,61.4L240.0,65.2L237.3,72.0L231.3,81.2L227.7,82.2L225.2,81.7L223.2,82.3L221.3,80.2L225.3,73.7L223.5,71.9L218.8,69.8L218.0,65.7L211.2,64.8L205.5,65.6L203.8,59.5L204.3,54.6L206.4,52.7L207.0,49.5L217.2,48.8L226.1,41.4L230.6,39.0L237.8,33.4L246.4,30.3L249.3,30.1L255.7,26.7L256.8,25.4L260.3,18.5L260.1,14.9L259.1,14.2L259.5,13.4L266.7,12.9L265.0,15.2L266.8,16.7L267.9,16.2L268.7,14.9L270.5,14.7L270.3,12.9L269.1,11.9L267.5,12.4L267.0,11.9L270.3,8.9L271.9,8.4L272.7,8.5L271.4,9.8L272.9,10.3L274.8,9.1L275.5,7.1L276.2,7.0L276.0,7.6L277.0,8.8L277.1,7.7L279.3,6.5L277.5,6.8L278.3,6.0L277.0,6.5L277.3,5.4L275.2,6.7L276.2,5.5L277.7,4.9L283.8,5.9L286.5,7.6L291.9,9.0L294.4,11.0L298.9,19.6L297.8,21.8L291.8,25.4L290.7,28.0Z" data-dep="la-guajira"><title>La Guajira: atención virtual</title></path>
+              <path class="dep is-virtual" d="M231.3,81.2L230.5,90.7L228.6,97.3L228.7,104.3L224.1,113.0L221.5,115.1L216.0,125.1L213.5,127.4L213.5,128.2L214.5,128.5L212.5,129.0L211.8,130.3L211.4,139.7L212.2,142.8L207.1,149.3L209.7,154.7L208.4,157.8L210.6,158.7L211.1,159.9L212.9,158.1L212.4,155.0L214.8,155.6L214.4,159.6L212.7,164.3L212.9,167.3L213.9,168.9L214.1,170.9L217.3,172.6L217.3,174.1L215.0,175.9L214.8,179.1L213.3,181.5L210.0,183.9L205.7,181.9L200.0,181.7L200.3,178.4L203.1,175.4L202.8,174.0L200.9,172.5L199.0,168.4L198.3,164.1L199.9,159.7L199.4,158.6L199.9,157.5L198.3,150.4L197.1,148.0L197.9,141.5L195.6,138.8L198.2,132.6L196.2,130.2L195.3,127.7L192.3,127.0L192.4,123.6L190.9,121.8L190.7,119.7L185.6,116.0L189.7,112.5L195.4,113.3L197.2,112.3L198.2,113.0L198.8,112.3L196.6,107.0L196.6,105.1L190.8,99.3L188.3,95.2L188.8,90.9L194.2,83.5L199.3,82.6L206.8,78.1L205.8,76.7L205.2,72.9L207.0,69.4L204.0,68.4L205.5,65.6L211.2,64.8L217.5,65.4L218.6,66.9L218.8,69.8L223.5,71.9L225.3,73.7L221.3,80.2L222.9,82.1L225.2,81.7L227.7,82.2L231.3,81.2Z" data-dep="cesar"><title>Cesar: atención virtual</title></path>
+              <path class="dep is-virtual" d="M227.8,123.6L229.8,130.7L234.6,129.3L235.9,130.4L235.6,131.7L240.3,147.7L251.1,159.4L250.7,162.4L253.0,169.6L252.4,170.4L250.3,170.4L249.4,172.4L247.2,174.4L248.4,176.0L248.6,178.3L247.5,185.1L248.2,188.1L247.6,191.3L250.0,194.0L257.8,195.1L259.4,197.1L259.4,201.2L261.9,206.2L265.8,209.0L258.7,207.9L256.5,210.2L254.8,209.2L253.3,212.1L251.2,214.0L246.6,212.6L245.1,213.7L244.6,209.4L241.2,209.6L240.5,210.4L239.8,209.2L237.7,209.8L235.9,208.3L232.6,207.2L234.5,203.4L234.2,201.7L232.6,199.8L233.9,198.2L234.0,196.1L232.0,193.4L231.8,191.6L228.7,189.0L228.5,186.5L220.0,185.9L218.9,187.1L218.4,189.1L214.7,188.9L209.6,187.0L207.8,184.4L204.2,181.6L206.1,182.0L209.2,184.0L211.2,183.4L214.5,179.8L215.0,175.9L217.4,173.5L216.2,171.6L214.1,170.9L213.9,168.9L212.9,167.3L212.7,164.3L214.4,159.6L214.8,155.6L212.4,155.0L212.9,158.1L210.9,159.8L210.6,158.7L208.3,157.6L209.7,154.7L207.1,150.0L207.7,147.9L212.2,142.8L211.4,139.7L211.8,130.3L212.9,128.8L220.2,128.1L227.8,123.6Z" data-dep="norte-de-santander"><title>Norte de Santander: atención virtual</title></path>
+              <path class="dep is-virtual" d="M266.9,209.2L271.2,210.0L274.1,209.0L274.0,208.3L277.9,208.4L278.0,207.5L279.7,207.5L280.7,208.3L283.9,208.1L285.4,209.0L287.4,208.3L292.0,208.5L292.6,210.0L296.0,210.8L297.8,209.7L302.5,209.8L304.4,209.1L306.8,206.9L314.0,205.7L316.4,206.7L318.7,206.2L321.2,209.1L323.4,209.1L328.4,211.7L333.0,210.3L335.5,210.5L361.6,242.3L357.8,244.5L348.4,244.5L345.7,245.8L344.5,245.3L343.8,243.6L341.9,242.1L339.4,241.2L335.9,237.5L334.1,236.8L327.3,236.4L321.4,238.4L313.1,239.0L310.8,238.1L308.0,238.8L304.4,238.5L295.2,236.6L285.6,239.4L275.9,239.3L270.9,241.1L267.5,241.2L263.4,242.7L261.2,244.3L259.7,244.1L255.8,241.7L252.6,237.0L252.4,235.7L255.3,230.7L256.7,230.9L260.4,228.0L261.7,219.6L263.5,217.6L266.9,209.2Z" data-dep="arauca"><title>Arauca: atención virtual</title></path>
+              <path class="dep is-virtual" d="M265.8,209.0L266.8,209.4L263.5,217.6L261.7,219.6L260.4,228.0L256.7,230.9L255.8,230.4L255.0,231.0L254.5,232.8L252.3,234.3L250.7,236.8L250.0,239.2L252.8,243.9L250.8,250.5L249.0,251.2L248.8,252.3L253.9,255.3L256.6,258.7L254.2,262.4L253.6,265.3L252.5,265.1L250.6,263.1L249.8,263.4L243.5,271.0L239.7,273.8L235.3,269.9L233.5,271.3L230.4,275.2L229.9,278.2L231.6,281.1L229.1,285.0L227.0,284.8L225.6,291.3L226.1,294.1L223.9,296.8L220.0,296.3L219.6,294.6L217.0,294.3L215.8,292.3L214.4,291.8L213.1,289.0L208.6,288.4L207.7,287.2L208.8,283.3L210.3,281.8L208.6,275.4L206.3,272.8L206.1,269.8L203.7,267.0L198.5,265.2L198.5,263.3L197.7,263.2L194.5,266.2L194.2,267.7L190.7,270.2L187.4,268.5L187.1,267.2L185.2,267.3L181.6,266.1L181.1,263.9L179.0,261.3L179.9,258.7L178.8,254.4L177.7,253.3L174.3,255.5L170.8,254.7L166.6,256.1L166.0,255.4L166.8,252.0L168.6,249.9L168.1,247.6L169.3,246.8L169.1,243.9L168.1,241.7L169.5,237.8L171.3,236.3L172.8,241.0L175.0,244.1L177.4,245.4L179.9,244.2L180.6,245.0L181.8,247.5L180.7,250.6L181.1,252.5L182.0,252.6L184.2,250.5L186.6,251.7L187.4,253.4L188.9,253.8L190.4,256.1L191.7,256.8L194.7,256.3L195.3,257.6L200.6,255.8L203.9,257.5L206.1,247.2L209.5,242.8L211.7,244.2L213.8,246.8L213.1,249.7L210.5,252.5L210.6,253.8L213.1,255.9L215.0,252.0L217.4,252.2L219.9,247.5L220.8,247.2L223.4,248.5L227.5,249.0L228.4,246.8L232.1,242.2L235.0,241.1L235.6,239.3L237.3,238.2L238.1,229.8L235.8,226.9L235.9,225.6L237.0,225.4L239.0,227.1L240.8,230.6L242.5,230.4L244.9,228.5L247.7,218.4L247.7,215.3L246.6,212.6L251.2,214.0L253.3,212.1L254.8,209.2L256.5,210.2L258.7,207.9L265.8,209.0Z" data-dep="boyaca"><title>Boyacá: atención virtual</title></path>
+              <path class="dep is-virtual" d="M435.5,239.6L434.3,240.6L434.2,242.5L436.5,245.4L436.7,247.6L434.4,248.9L429.1,254.9L428.2,259.7L429.4,264.0L428.1,266.4L422.2,270.1L421.0,273.1L422.1,276.4L421.6,279.7L422.9,281.9L421.6,288.2L421.7,293.8L419.8,301.7L422.9,305.6L423.4,308.5L422.6,310.2L422.6,312.8L423.1,315.2L424.8,317.2L425.7,320.1L422.7,323.4L421.2,324.5L419.7,324.5L417.0,323.2L415.2,324.0L414.6,321.7L413.3,323.3L411.7,321.4L409.3,324.3L408.3,324.5L408.1,322.6L405.7,323.7L405.1,321.5L401.8,320.9L401.3,321.8L402.0,322.8L401.2,324.5L398.5,324.9L398.7,326.4L396.2,327.4L394.7,329.3L393.4,328.8L391.1,329.8L389.4,329.2L387.5,330.1L387.3,331.5L384.8,331.8L385.0,333.2L383.4,332.5L381.2,333.3L380.1,332.6L379.1,335.1L376.2,334.5L374.3,336.2L373.8,334.5L372.5,333.8L370.9,334.6L370.6,333.6L367.3,331.8L366.4,332.8L364.8,332.4L361.6,333.4L360.0,332.3L356.5,333.1L354.8,333.4L354.9,335.9L353.5,336.8L353.1,339.1L350.7,337.8L346.0,338.1L345.3,339.2L344.3,337.8L343.1,338.2L341.7,340.1L339.9,339.3L337.2,339.4L338.3,340.9L337.8,343.1L335.8,343.4L334.7,346.0L336.0,348.2L335.0,348.7L335.5,351.4L334.3,350.5L334.2,352.1L332.7,351.7L328.8,355.9L330.5,356.7L329.4,357.9L330.0,360.5L326.0,364.8L321.6,367.1L318.2,364.9L316.0,365.3L314.3,363.9L314.7,365.6L312.8,367.2L312.3,366.0L310.0,366.8L308.6,365.4L307.1,365.9L306.5,364.3L305.8,365.4L304.4,364.0L303.7,366.0L303.4,364.5L300.5,363.9L300.7,287.2L304.4,279.8L307.1,278.4L314.3,272.5L315.6,269.1L323.5,264.3L327.5,263.0L333.4,262.3L336.9,260.1L340.8,255.1L344.1,247.9L347.2,244.8L357.8,244.5L365.3,241.0L368.5,243.8L375.4,238.7L384.9,239.9L391.4,241.7L393.3,240.5L398.3,239.5L403.7,240.2L409.6,238.5L414.4,238.9L418.0,238.1L418.7,236.5L421.6,235.1L431.1,236.9L435.5,239.6Z" data-dep="vichada"><title>Vichada: atención virtual</title></path>
+              <path class="dep is-virtual" d="M44.8,370.4L49.2,374.2L47.1,374.8L45.6,374.0L46.1,372.5L44.4,371.8L44.3,370.3L44.8,370.4ZM48.4,371.7L50.3,373.3L50.1,373.9L46.9,372.2L45.5,369.3L46.4,369.9L46.9,369.3L48.4,371.7ZM38.4,372.2L43.0,371.2L44.2,372.8L45.3,372.7L44.7,374.7L47.1,375.3L50.1,374.3L50.4,373.0L48.7,371.2L49.4,370.6L48.7,370.3L48.2,367.8L51.1,367.0L49.2,366.7L49.9,365.9L52.0,366.0L52.8,366.8L52.4,366.0L51.0,365.7L52.1,364.7L53.5,364.0L54.5,364.8L54.7,363.9L53.9,363.6L52.0,364.2L51.8,362.9L52.5,361.7L54.6,362.8L55.4,361.6L54.5,360.7L55.1,359.4L54.1,358.8L53.7,359.6L52.8,359.1L51.5,359.7L57.2,353.9L58.4,351.7L59.5,351.7L59.8,350.7L60.6,350.5L58.3,349.8L61.2,347.7L62.9,349.4L64.6,352.7L66.6,352.5L69.4,354.5L71.6,352.7L74.4,351.8L78.0,352.7L82.7,355.5L84.9,355.1L86.8,352.1L90.8,355.0L92.3,354.4L93.2,355.4L94.4,354.4L95.2,354.9L96.7,352.9L99.2,351.4L99.4,349.5L98.6,348.4L99.6,347.1L106.4,348.4L113.1,351.0L112.4,352.3L111.7,355.5L114.3,357.7L115.0,362.3L122.7,368.9L124.1,371.4L122.5,376.6L123.6,378.7L121.8,380.4L120.5,380.5L117.2,378.1L114.1,380.7L107.2,383.3L105.5,383.1L101.8,380.7L101.3,382.7L102.6,386.3L100.2,390.3L100.3,391.5L98.9,392.2L95.3,391.9L94.7,392.7L94.8,395.9L93.5,397.5L94.4,400.9L97.1,403.0L101.7,409.2L110.5,412.3L107.4,416.4L105.4,421.1L104.9,426.9L106.4,428.7L110.0,428.9L113.7,432.2L112.7,433.4L110.4,433.6L108.1,434.9L101.7,434.5L96.8,432.4L95.5,429.4L96.5,422.5L93.9,418.6L92.1,417.7L90.9,417.6L87.0,422.1L81.8,422.1L81.4,415.0L83.6,413.5L84.4,411.4L81.4,406.9L76.9,407.5L74.8,408.8L72.9,408.1L69.8,409.0L66.4,408.0L67.9,401.8L71.1,397.9L66.3,394.1L67.3,390.6L66.8,390.0L61.8,388.1L52.3,391.1L47.1,389.8L43.1,382.1L43.7,379.0L42.9,375.6L38.4,372.2Z" data-dep="cauca"><title>Cauca: atención virtual</title></path>
+              <path class="dep is-virtual" d="M61.2,347.7L61.0,346.1L64.3,344.5L66.6,347.1L64.8,344.0L65.3,342.9L66.1,343.6L65.6,342.7L66.1,339.9L66.8,339.9L66.7,341.1L68.7,341.4L67.9,340.4L68.4,340.1L67.4,339.9L68.3,339.1L66.4,339.1L66.5,338.5L68.1,338.6L67.4,338.1L68.1,337.8L67.9,337.3L70.7,337.3L70.0,336.9L71.5,334.2L72.2,334.6L74.1,333.7L72.1,333.7L72.0,333.1L73.8,332.2L71.6,332.7L71.0,331.2L71.2,330.7L73.8,331.6L72.0,330.7L73.8,329.9L72.9,328.6L73.5,328.1L74.0,329.1L74.6,328.6L74.3,327.1L76.0,326.6L77.4,324.8L75.1,325.0L75.6,324.5L73.8,324.3L73.9,325.9L71.8,327.1L69.1,327.6L67.6,326.8L68.4,325.9L66.9,325.1L67.3,322.8L68.4,322.1L68.4,323.0L70.7,322.5L69.4,322.5L71.5,319.1L68.7,317.6L68.7,319.1L67.4,319.1L67.4,319.9L66.6,319.6L66.3,322.3L65.6,324.3L65.0,324.3L64.6,323.0L62.4,321.2L62.4,320.0L63.3,319.9L62.3,315.9L65.4,314.3L67.4,314.9L69.0,312.6L70.3,315.3L72.7,314.8L76.1,317.7L80.2,317.0L82.5,320.1L87.5,321.8L88.6,321.7L91.5,319.3L93.7,319.7L99.5,314.1L97.4,312.7L97.4,309.7L95.5,306.9L98.9,305.9L100.0,299.9L104.1,296.2L104.8,293.1L109.6,288.4L110.7,285.4L113.1,282.9L116.4,287.6L116.6,289.0L118.8,289.0L118.2,290.9L119.0,292.8L121.5,292.6L121.4,294.3L126.6,295.0L126.6,297.0L122.5,296.8L121.1,298.7L120.5,301.0L120.9,304.5L120.0,305.8L123.1,306.8L123.9,308.5L122.0,317.1L124.8,318.7L125.5,320.1L123.6,321.3L116.4,334.8L116.1,338.1L114.1,342.5L113.5,345.6L114.3,347.3L113.1,351.0L106.4,348.4L99.6,347.1L98.6,348.4L99.4,349.5L99.2,351.4L96.7,352.9L95.2,354.9L94.4,354.4L93.2,355.4L92.3,354.4L90.8,355.0L86.8,352.1L84.9,355.1L83.4,355.6L78.0,352.7L74.4,351.8L68.8,354.4L66.6,352.5L64.6,352.7L62.9,349.4L61.2,347.7Z" data-dep="valle-del-cauca"><title>Valle del Cauca: atención virtual</title></path>
+              <path class="dep is-virtual" d="M79.1,162.5L80.0,162.1L79.9,164.4L81.6,165.0L81.2,166.1L80.4,165.9L80.7,167.2L81.6,167.8L82.4,167.6L82.5,166.9L84.8,166.9L84.3,168.5L85.1,168.2L83.8,168.9L84.6,170.0L83.5,169.7L84.8,171.0L82.0,170.4L81.0,173.4L82.0,174.7L84.0,175.3L87.2,175.1L88.0,174.3L88.6,170.1L87.5,167.7L88.0,165.6L87.1,162.4L87.1,157.1L84.6,153.3L80.5,151.6L81.1,150.7L82.5,148.8L91.2,146.3L91.7,144.1L95.0,143.0L99.3,139.5L100.5,140.6L101.4,144.4L103.0,146.8L106.2,148.6L107.4,150.4L107.8,156.7L104.0,161.5L100.3,168.3L100.2,172.8L97.0,181.7L97.3,187.0L100.7,195.2L121.3,195.7L124.6,190.8L131.3,188.1L132.9,183.6L135.0,181.8L136.2,179.2L139.8,176.4L144.8,170.3L155.5,169.3L158.9,165.2L159.5,165.0L168.3,172.1L170.4,175.8L171.2,180.6L172.7,182.3L172.1,184.1L169.3,186.8L169.0,192.0L171.0,195.2L172.4,196.1L174.1,195.2L175.6,192.3L177.1,191.1L177.7,193.2L175.9,196.6L175.6,202.0L177.9,209.0L181.3,209.6L193.3,198.2L193.5,204.7L194.9,208.7L193.5,210.4L190.1,212.1L186.7,217.3L179.8,222.4L176.3,223.4L175.4,225.6L175.6,229.1L176.6,231.0L169.0,238.8L168.1,241.7L169.1,243.9L169.3,246.8L168.1,247.6L168.6,249.9L168.0,250.4L166.8,252.0L166.0,255.4L164.0,255.3L162.9,258.1L161.7,258.4L158.3,256.4L153.7,257.5L152.5,258.9L149.9,259.6L149.9,261.9L148.3,264.2L145.3,265.4L143.2,268.0L142.4,266.5L141.4,266.9L141.5,264.9L140.6,262.3L139.2,261.1L138.9,259.0L137.4,258.3L135.1,259.2L130.9,256.7L130.4,258.0L131.2,258.7L131.4,264.8L127.6,264.4L126.2,263.3L120.4,266.0L116.6,264.7L112.6,260.9L112.7,257.0L110.9,252.9L112.0,249.4L111.8,247.7L108.9,246.9L107.8,245.5L106.3,240.3L102.9,239.6L91.7,240.9L89.2,240.2L87.1,236.1L86.1,235.6L86.6,233.3L85.8,231.0L86.6,230.5L85.9,229.9L86.5,228.7L84.0,226.6L83.5,225.1L82.5,225.1L82.4,223.8L83.5,222.9L82.2,222.5L82.1,220.9L81.1,221.7L80.6,220.6L79.7,220.5L80.4,219.5L79.6,216.5L82.9,215.2L84.7,215.4L85.6,214.6L85.9,212.2L84.7,210.0L85.4,209.1L90.4,208.5L95.5,209.8L97.0,206.6L96.9,202.5L95.6,199.4L90.0,196.2L83.1,188.3L79.3,185.5L73.8,180.2L74.3,179.9L74.0,177.9L75.0,178.1L77.7,175.8L78.4,172.1L80.0,169.6L80.0,165.7L79.1,162.5Z" data-dep="antioquia"><title>Antioquia: atención virtual</title></path>
+              <path class="dep is-virtual" d="M99.3,139.5L100.0,138.0L103.8,136.8L106.1,134.8L106.4,132.0L108.7,129.6L109.6,125.4L111.6,124.7L112.3,122.2L116.8,120.3L118.0,118.2L119.3,118.6L122.7,117.9L123.5,119.0L122.4,118.7L121.7,119.4L122.5,119.2L123.0,120.0L124.8,118.9L127.2,119.0L127.2,121.4L135.9,125.7L137.2,128.9L145.4,133.1L145.0,133.8L145.9,135.3L145.5,137.5L142.2,138.5L140.0,140.6L140.4,146.7L141.6,153.2L146.5,157.0L154.1,153.9L155.5,153.8L157.6,155.5L160.7,159.5L160.8,162.4L159.5,165.0L157.6,166.3L155.5,169.3L144.8,170.3L139.8,176.4L136.2,179.2L135.0,181.8L132.9,183.6L131.3,188.1L124.6,190.8L121.3,195.7L100.7,195.2L97.3,187.0L97.0,181.7L100.2,172.8L100.3,168.3L104.0,161.5L107.8,156.7L107.9,155.1L107.4,150.4L105.6,148.0L103.0,146.8L101.4,144.4L100.5,140.6L99.3,139.5Z" data-dep="cordoba"><title>Córdoba: atención virtual</title></path>
+              <path class="dep is-virtual" d="M127.2,119.0L128.2,119.3L130.1,117.7L131.7,113.6L131.8,111.4L130.2,108.9L127.0,108.4L129.4,105.3L131.3,98.6L131.6,93.8L135.2,91.9L133.3,95.5L133.7,96.0L135.5,95.8L136.0,98.5L135.4,100.4L139.3,101.8L141.1,101.7L139.3,110.7L142.2,109.3L146.5,110.6L150.8,114.4L153.0,114.8L152.6,117.1L155.5,117.1L156.9,118.3L155.5,121.7L156.9,127.7L158.5,129.1L159.9,131.8L166.1,135.9L170.5,141.6L168.2,144.8L168.8,149.2L169.7,150.7L170.1,154.7L169.5,156.6L168.2,156.9L167.5,159.0L166.2,160.2L163.1,160.4L160.6,161.6L160.5,158.9L155.5,153.8L150.4,155.1L146.5,157.0L141.9,153.7L140.0,140.6L142.2,138.5L145.5,137.5L145.9,135.3L145.0,133.8L145.4,133.1L137.2,128.9L135.9,125.7L127.2,121.4L127.2,119.0Z" data-dep="sucre"><title>Sucre: atención virtual</title></path>
+              <path class="dep is-virtual" d="M131.6,93.8L131.3,92.4L133.1,90.2L133.5,88.2L129.3,91.5L127.0,92.2L129.7,89.3L130.3,87.2L131.2,87.2L131.2,85.9L131.5,86.7L134.0,85.3L133.7,82.6L133.2,82.8L132.7,81.6L131.7,82.3L132.2,81.0L134.5,79.0L133.8,81.0L134.9,81.0L135.0,78.5L134.3,78.2L134.5,76.6L133.7,76.0L136.0,74.7L136.1,73.6L137.5,73.2L138.2,71.8L141.8,70.7L142.9,69.5L143.7,69.7L143.5,72.0L144.8,73.7L143.4,77.4L143.8,78.6L146.8,79.3L146.7,80.2L148.4,82.2L150.5,81.7L154.0,84.4L156.4,87.2L155.4,92.1L158.8,93.8L160.5,95.9L160.4,97.8L158.2,99.1L157.9,100.4L158.0,102.9L160.2,105.9L159.7,109.0L161.5,111.0L160.8,117.9L161.9,117.7L163.0,119.0L164.4,118.6L165.4,119.9L166.9,120.3L170.8,125.5L172.8,124.6L174.6,124.6L175.3,126.2L177.5,126.0L179.1,126.6L179.7,128.4L181.8,128.9L183.4,131.2L185.4,132.5L185.0,132.8L187.3,133.5L189.1,132.6L191.3,135.0L195.5,135.6L195.1,137.8L197.9,141.5L197.1,148.0L198.3,150.4L199.9,157.5L199.4,158.6L199.9,159.7L198.3,164.1L198.7,166.0L196.1,168.1L195.5,170.4L197.6,179.5L197.1,186.6L194.0,190.9L194.5,193.7L193.3,198.2L181.3,209.6L177.9,209.0L175.6,202.0L175.9,196.6L177.7,193.2L177.1,191.1L173.2,195.9L171.7,195.9L169.7,193.6L168.8,191.0L169.3,186.8L172.1,184.1L172.7,182.3L171.2,180.6L170.1,174.7L168.3,172.1L159.5,165.0L160.8,162.7L160.6,161.6L163.1,160.4L166.2,160.2L167.5,159.0L168.2,156.9L169.5,156.6L170.1,154.7L169.7,150.7L168.8,149.2L168.2,144.8L170.5,141.6L166.1,135.9L159.9,131.8L158.5,129.1L157.1,128.0L155.5,121.7L156.9,118.3L155.5,117.1L152.6,117.1L153.0,114.8L150.8,114.4L146.5,110.6L142.2,109.3L139.3,110.7L141.1,101.7L139.3,101.8L135.4,100.4L136.0,98.5L135.5,95.8L133.7,96.0L133.3,95.5L135.2,91.9L131.6,93.8Z" data-dep="bolivar"><title>Bolívar: atención virtual</title></path>
+              <path class="dep is-virtual" d="M143.7,70.7L145.0,69.8L145.3,66.3L151.5,63.5L152.5,60.8L154.7,60.0L156.2,58.1L158.5,58.0L159.0,56.6L161.8,59.5L163.5,62.9L163.0,65.8L163.7,69.0L163.5,75.4L160.6,78.1L159.5,82.0L156.4,87.2L150.5,81.7L148.4,82.2L146.7,80.2L146.9,79.4L143.8,78.6L143.4,77.4L144.8,73.7L143.5,72.0L143.7,70.7Z" data-dep="atlantico"><title>Atlántico: atención virtual</title></path>
+              <path class="dep is-virtual" d="M159.0,56.6L159.2,55.7L171.2,60.0L179.6,60.2L177.2,60.9L172.3,60.6L171.4,62.6L172.7,65.4L171.1,64.2L170.7,64.6L169.0,64.0L168.4,64.8L168.4,68.0L169.6,66.2L170.4,67.0L170.4,68.7L172.0,68.6L172.2,68.0L171.4,68.1L171.2,67.2L171.7,65.7L172.9,66.3L173.7,69.3L175.7,69.3L177.2,68.2L180.2,60.2L182.6,56.9L181.9,55.2L182.0,50.8L183.7,48.0L185.1,47.9L185.0,47.0L185.5,47.7L186.5,47.2L186.5,46.5L187.6,47.5L188.3,46.7L190.6,46.6L197.2,49.5L207.0,49.5L206.4,52.7L204.3,54.6L203.8,59.8L205.5,65.6L204.0,68.4L207.0,69.4L205.2,72.9L205.8,76.7L206.8,78.1L199.3,82.6L194.2,83.5L192.7,85.3L188.8,90.9L188.3,95.2L190.8,99.3L196.6,105.1L196.6,107.0L198.8,112.3L198.2,113.0L197.2,112.3L195.4,113.3L189.7,112.5L185.6,116.0L190.7,119.7L190.9,121.8L192.4,123.6L192.3,127.0L195.3,127.7L196.2,130.2L198.2,132.6L195.6,138.8L195.0,136.7L195.5,135.6L191.3,135.0L189.1,132.6L187.3,133.5L185.0,132.8L185.4,132.5L183.4,131.2L181.8,128.9L179.7,128.4L179.1,126.6L177.5,126.0L175.3,126.2L174.6,124.6L172.8,124.6L170.8,125.5L166.9,120.3L165.4,119.9L164.4,118.6L163.0,119.0L161.9,117.7L160.8,117.9L161.5,111.0L159.7,109.0L160.2,105.9L158.0,102.9L157.9,100.4L158.2,99.1L160.4,97.8L160.6,96.3L158.8,93.8L155.9,92.5L155.3,91.0L156.2,87.7L159.5,82.0L160.6,78.1L162.8,76.7L163.6,74.6L163.7,68.3L163.0,65.8L163.5,62.9L161.8,59.5L159.0,56.6Z" data-dep="magdalena"><title>Magdalena: atención virtual</title></path>
+              <path class="dep is-virtual" d="M147.5,376.8L153.2,372.6L153.2,370.8L151.5,369.3L151.4,367.7L152.6,365.2L156.2,361.2L157.2,360.9L164.1,362.9L166.0,366.7L168.4,369.4L166.1,382.1L166.6,384.5L170.4,389.6L170.2,391.1L167.7,394.8L168.0,397.8L170.1,401.2L193.8,410.1L202.9,410.5L203.3,412.0L207.0,417.5L209.5,419.6L211.6,422.5L212.2,426.0L218.9,432.8L220.7,433.5L223.1,436.0L225.8,436.6L227.7,435.8L230.4,432.9L232.1,432.1L233.0,427.9L234.7,426.5L237.1,428.1L237.9,426.4L240.4,426.7L245.2,429.9L247.8,430.6L249.5,432.2L250.5,435.8L252.0,436.3L252.5,438.4L253.9,438.2L253.9,440.8L255.7,441.9L256.6,443.7L259.8,444.0L261.8,444.9L262.6,446.2L264.8,446.7L265.7,449.7L266.3,450.1L267.0,449.5L268.0,450.5L267.9,453.0L271.4,455.6L271.3,457.9L273.5,457.3L277.2,461.6L282.8,464.6L287.2,464.1L290.9,466.2L288.4,468.7L277.2,474.4L274.0,479.6L271.3,480.4L265.1,480.5L260.7,483.4L256.8,488.7L256.5,493.2L255.1,494.5L253.4,494.8L249.8,492.0L244.4,496.8L237.5,492.1L232.4,493.7L228.2,490.9L225.1,493.4L221.9,494.0L220.4,493.8L215.7,490.2L213.6,491.1L207.4,490.7L206.2,488.8L204.2,488.3L204.1,487.0L202.1,485.9L198.7,486.5L192.9,485.0L186.4,480.4L184.4,480.9L183.5,479.5L181.7,479.7L180.2,476.8L178.5,475.8L175.8,476.2L174.7,474.3L173.2,475.9L169.1,475.3L167.9,473.6L165.9,473.2L165.1,471.0L166.1,469.2L164.7,468.4L165.4,467.1L164.3,464.5L158.7,462.9L154.4,460.7L153.5,453.6L150.6,453.5L149.8,452.2L146.4,452.7L145.3,450.6L145.4,448.1L143.5,444.0L141.5,443.1L136.2,443.2L130.9,439.5L125.9,439.5L122.4,438.3L119.7,435.5L118.4,432.7L113.7,432.2L110.0,428.9L105.8,428.3L104.8,426.5L105.4,421.1L109.8,412.8L110.5,412.3L116.7,412.7L121.9,408.4L129.9,397.7L132.7,395.2L137.6,387.2L141.9,383.5L144.7,376.6L145.6,376.0L147.5,376.8Z" data-dep="caqueta"><title>Caquetá: atención virtual</title></path>
+              <path class="dep is-virtual" d="M157.2,360.9L154.2,363.1L151.4,367.7L151.5,369.3L153.2,370.8L153.2,372.6L148.8,376.4L147.5,376.8L145.6,376.0L144.7,376.6L141.9,383.5L137.6,387.2L132.7,395.2L129.9,397.7L121.9,408.4L117.4,412.4L115.7,412.9L107.7,411.6L101.7,409.2L97.1,403.0L94.4,400.9L93.5,398.0L94.8,395.9L94.7,392.7L95.3,391.9L98.9,392.2L100.3,391.5L100.2,390.3L102.6,386.3L101.3,382.7L101.8,380.7L105.5,383.1L107.2,383.3L114.1,380.7L117.2,378.1L120.5,380.5L121.8,380.4L123.6,378.7L122.5,376.6L124.1,371.4L123.2,369.5L115.0,362.3L114.8,361.7L116.3,360.9L121.4,363.1L122.9,363.1L124.1,361.0L129.9,355.6L132.0,350.3L134.9,346.0L138.9,344.9L140.0,343.7L141.5,343.6L143.7,345.1L145.4,343.7L146.7,344.5L148.0,342.9L152.0,342.8L150.8,347.8L154.6,348.6L156.7,348.2L161.7,342.5L161.8,339.8L163.3,338.1L163.5,336.3L169.7,330.1L172.3,332.7L172.1,333.8L167.7,340.9L166.4,349.3L165.3,351.2L159.9,355.0L157.2,360.9Z" data-dep="huila"><title>Huila: atención virtual</title></path>
+              <path class="dep is-virtual" d="M225.0,436.7L221.6,435.0L220.7,433.5L218.9,432.8L212.2,426.0L211.6,422.5L203.3,412.0L203.4,386.9L205.0,382.4L206.0,382.0L206.5,382.9L208.3,382.1L209.0,383.2L211.1,383.4L211.5,382.0L212.0,384.0L213.3,383.6L214.0,384.1L214.5,383.2L215.3,384.1L216.2,383.4L218.8,383.6L218.9,382.5L220.1,381.9L222.7,382.9L223.5,381.7L224.3,382.1L225.8,381.0L227.4,381.0L230.7,378.9L230.5,377.2L234.9,374.1L236.0,373.9L238.0,375.5L239.2,373.7L240.5,373.5L241.5,375.4L242.7,373.2L244.0,374.7L244.1,372.9L245.5,372.4L244.8,371.2L246.6,371.5L249.7,370.5L251.8,368.8L253.9,369.6L254.9,368.3L256.1,370.3L256.3,368.2L258.3,367.5L258.3,364.7L261.0,364.0L262.6,365.5L266.3,366.5L271.6,365.3L273.3,364.2L274.5,365.9L275.1,363.4L277.4,365.0L278.6,364.1L278.9,365.8L279.6,365.9L281.9,364.4L285.4,364.5L286.3,363.7L288.6,364.8L289.6,363.7L290.6,364.3L291.6,362.6L293.0,364.1L294.5,364.4L296.6,363.4L298.1,364.1L301.4,363.8L303.4,364.5L303.7,366.0L304.1,364.1L305.8,365.4L306.5,364.3L307.1,365.9L308.6,365.4L310.0,366.8L312.3,366.0L312.8,367.2L314.7,365.6L314.2,364.1L314.7,363.9L316.0,365.3L318.2,364.9L321.6,367.1L306.3,373.9L312.4,376.6L315.0,380.0L317.1,384.2L321.5,386.1L321.9,387.3L325.1,386.6L328.9,388.0L329.7,386.8L333.2,387.0L338.4,385.7L340.5,388.4L336.5,391.9L336.4,392.6L332.8,395.3L323.7,396.9L321.7,398.2L315.8,400.0L306.5,399.5L304.1,401.9L296.9,405.5L293.1,408.6L288.3,406.4L287.8,411.4L286.4,413.3L282.3,424.0L282.2,425.7L284.0,429.5L283.2,429.5L282.2,427.8L280.1,432.2L277.8,434.5L274.6,434.9L273.5,436.9L264.2,446.4L262.6,446.2L261.8,444.9L259.8,444.0L256.6,443.7L255.7,441.9L253.9,440.8L253.9,438.2L252.5,438.4L252.0,436.3L250.5,435.8L249.5,432.2L247.8,430.6L245.2,429.9L239.2,426.2L237.9,426.4L237.1,428.1L234.9,426.4L233.4,427.3L232.1,432.1L226.9,436.4L225.0,436.7Z" data-dep="guaviare"><title>Guaviare: atención virtual</title></path>
+              <path class="dep is-present" d="M166.0,255.4L167.1,258.0L166.0,262.7L166.8,263.2L165.4,263.7L166.0,264.6L166.0,267.1L162.7,273.4L159.6,272.5L152.9,273.2L151.0,274.2L148.7,278.1L147.0,277.7L145.0,278.9L142.3,279.3L140.3,282.0L141.5,283.2L140.1,286.5L141.0,288.8L139.2,291.7L134.9,287.2L130.5,286.7L129.5,285.2L128.4,286.2L126.9,286.1L125.3,282.5L123.0,287.1L121.2,286.8L120.2,285.8L118.7,282.6L120.1,279.6L122.0,280.1L123.2,276.7L122.7,275.1L123.5,273.5L127.4,274.6L129.3,272.8L126.5,269.4L123.3,270.6L121.3,270.2L121.3,265.9L126.2,263.3L127.6,264.4L131.4,264.8L131.2,258.7L130.4,258.0L130.4,256.7L132.5,257.3L135.1,259.2L137.4,258.3L138.9,259.0L139.2,261.1L140.6,262.3L141.5,264.9L141.4,266.9L142.4,266.5L143.0,268.0L145.3,265.4L148.3,264.2L149.9,261.9L149.9,259.6L152.5,258.9L153.7,257.5L158.3,256.4L161.7,258.4L162.9,258.1L164.0,255.3L166.0,255.4Z" data-dep="caldas"><title>Caldas: atención presencial</title></path>
+              <path class="dep is-virtual" d="M253.5,233.7L252.4,236.1L253.4,238.4L256.3,242.1L260.6,244.2L267.5,241.2L270.9,241.1L275.9,239.3L285.6,239.4L295.2,236.6L304.4,238.5L308.0,238.8L310.8,238.1L315.2,239.0L321.4,238.4L327.3,236.4L335.9,237.5L338.9,240.8L342.6,242.5L344.5,245.3L345.7,245.8L340.8,255.1L336.9,260.1L333.4,262.3L327.5,263.0L323.5,264.3L315.6,269.1L314.3,272.5L307.1,278.4L304.4,279.8L301.9,285.8L299.7,288.2L294.9,291.1L292.7,291.5L281.8,296.1L277.3,298.9L272.7,300.0L265.1,306.7L262.9,306.9L262.2,305.8L259.9,304.8L253.4,306.3L251.8,308.8L249.3,308.4L246.6,309.6L244.6,308.4L243.3,310.2L240.1,309.6L238.4,310.4L237.6,309.9L237.4,308.6L236.2,308.5L235.1,305.7L234.2,305.5L230.9,302.0L228.3,297.3L226.6,295.7L225.6,291.3L227.0,284.8L229.1,285.0L231.6,281.1L229.9,278.2L230.4,275.2L233.5,271.3L235.3,269.9L239.7,273.8L243.5,271.0L249.8,263.4L250.6,263.1L252.5,265.1L253.6,265.3L254.2,262.4L256.6,258.7L253.9,255.3L248.8,252.3L248.8,251.5L250.8,250.5L252.8,243.9L250.0,239.2L252.3,234.3L253.5,233.7Z" data-dep="casanare"><title>Casanare: atención virtual</title></path>
+              <path class="dep is-virtual" d="M157.2,360.9L159.9,355.0L165.3,351.2L166.4,349.3L167.7,340.9L171.3,335.8L172.3,332.7L173.4,333.7L174.7,333.6L182.4,321.3L186.1,321.4L189.9,318.1L192.2,317.5L193.8,315.9L197.7,314.0L200.0,314.1L197.8,305.9L201.6,302.3L204.9,303.5L206.4,305.9L207.5,309.6L208.4,310.4L209.9,310.9L214.5,309.6L219.9,311.0L222.7,313.2L226.1,294.1L230.9,302.0L234.2,305.5L235.1,305.7L236.2,308.5L237.4,308.6L237.6,309.9L238.4,310.4L240.1,309.6L243.3,310.2L244.6,308.4L246.6,309.6L249.3,308.4L251.8,308.8L253.4,306.3L259.9,304.8L263.7,307.1L266.5,305.8L272.7,300.0L277.3,298.9L281.8,296.1L292.7,291.5L294.9,291.1L300.7,287.2L300.5,363.9L298.1,364.1L296.6,363.4L294.5,364.4L293.0,364.1L291.6,362.6L290.6,364.3L289.6,363.7L288.6,364.8L286.3,363.7L285.9,364.4L282.3,364.3L281.2,365.2L278.9,365.8L278.6,364.1L277.4,365.0L275.1,363.4L274.5,365.9L273.3,364.2L271.6,365.3L266.3,366.5L262.6,365.5L261.0,364.0L258.3,364.7L258.3,367.5L256.3,368.2L256.1,370.3L254.9,368.3L253.9,369.6L251.8,368.8L249.7,370.5L246.6,371.5L244.8,371.2L245.5,372.4L244.1,372.9L244.0,374.7L242.7,373.2L241.5,375.4L240.5,373.5L239.2,373.7L238.0,375.5L236.0,373.9L234.9,374.1L230.5,377.2L230.7,378.9L227.4,381.0L225.8,381.0L224.3,382.1L223.5,381.7L222.7,382.9L220.1,381.9L218.9,382.5L218.8,383.6L216.2,383.4L215.3,384.1L214.5,383.2L214.0,384.1L213.3,383.6L212.2,384.0L211.5,382.0L211.1,383.4L209.0,383.2L208.3,382.1L206.5,382.9L205.4,382.1L204.7,382.7L203.4,386.9L203.4,409.8L202.9,410.5L194.9,410.2L171.6,402.3L168.9,399.6L167.7,394.8L170.2,391.1L170.4,389.6L166.6,384.5L166.1,382.1L168.4,369.4L166.0,366.7L164.1,362.9L157.2,360.9Z" data-dep="meta"><title>Meta: atención virtual</title></path>
+              <path class="dep is-virtual" d="M185.0,321.4L182.4,321.3L174.7,333.6L173.4,333.7L172.3,332.7L176.9,325.0L176.8,320.4L177.9,317.4L178.5,316.9L180.5,317.9L180.9,317.5L181.4,314.3L182.7,312.0L183.6,306.9L182.6,306.7L184.0,302.9L183.7,299.9L182.3,298.1L184.7,296.2L184.2,295.5L185.7,294.3L187.5,290.5L189.3,290.7L190.3,291.1L190.2,296.1L189.6,297.3L190.9,298.0L190.2,300.4L186.4,305.5L186.7,308.8L185.0,312.3L187.2,316.3L185.7,318.3L185.0,321.4Z" data-dep="bogota-d.c."><title>Bogotá D.C.: atención virtual</title></path>
+              <path class="dep is-virtual" d="M204.7,182.0L207.8,184.4L209.6,187.0L214.7,188.9L218.4,189.1L218.9,187.1L220.0,185.9L228.5,186.5L228.7,189.0L231.8,191.6L232.0,193.4L234.0,196.1L233.9,198.2L232.6,199.8L234.2,201.7L234.5,203.4L232.6,207.2L235.9,208.3L237.7,209.8L239.8,209.2L240.5,210.4L241.2,209.6L244.6,209.4L245.1,213.7L246.6,212.6L247.7,215.3L247.5,219.8L245.2,225.8L244.9,228.5L241.4,230.7L240.8,230.6L239.0,227.1L237.0,225.4L235.6,226.2L238.1,229.8L237.3,234.9L237.6,237.8L235.6,239.3L235.0,241.1L232.1,242.2L228.4,246.8L227.5,249.0L223.4,248.5L220.8,247.2L219.9,247.5L217.4,252.2L215.0,252.0L213.1,255.9L210.6,253.8L210.5,252.5L211.7,251.0L213.1,249.7L213.8,246.8L211.7,244.2L209.5,242.8L208.1,245.3L206.5,246.6L205.2,249.7L204.3,257.2L200.6,255.8L195.3,257.6L194.7,256.3L191.7,256.8L190.4,256.1L188.9,253.8L187.4,253.4L186.6,251.7L184.2,250.5L182.0,252.6L181.1,252.5L180.7,250.6L181.8,247.5L180.6,245.0L179.9,244.2L177.4,245.4L175.0,244.1L172.8,241.0L171.3,236.3L176.6,231.0L175.6,229.1L175.4,225.6L176.3,223.4L179.8,222.4L186.7,217.3L190.1,212.1L193.5,210.4L194.9,208.7L193.5,204.7L193.1,199.9L194.5,193.7L194.0,190.9L196.9,187.2L197.3,184.3L196.9,183.4L197.6,179.5L195.5,171.1L196.1,168.1L198.7,166.0L199.0,168.4L200.9,172.5L203.1,174.7L202.8,176.0L200.3,178.4L200.0,181.7L204.7,182.0Z" data-dep="santander"><title>Santander: atención virtual</title></path>
+              <path class="dep is-virtual" d="M169.7,330.1L163.5,336.3L163.3,338.1L161.8,339.8L161.7,342.5L156.7,348.2L154.6,348.6L150.8,347.8L152.0,342.8L148.0,342.9L146.7,344.5L145.4,343.7L143.7,345.1L141.5,343.6L140.0,343.7L138.9,344.9L134.9,346.0L132.0,350.3L129.9,355.6L124.1,361.0L122.9,363.1L121.4,363.1L116.9,361.0L114.8,361.7L114.3,357.7L111.7,355.1L114.3,347.3L113.5,345.6L114.3,341.7L116.1,338.1L116.4,334.8L123.6,321.3L125.5,320.1L124.8,318.7L130.8,310.5L131.6,305.7L134.4,300.3L137.5,297.8L138.8,295.1L139.2,291.7L141.0,288.8L140.1,286.5L141.5,283.2L140.3,282.0L140.7,281.0L142.9,279.0L144.3,279.1L147.0,277.7L148.7,278.1L151.0,274.2L152.9,273.2L159.6,272.5L162.7,273.4L163.2,280.2L162.7,283.2L163.5,284.8L162.2,285.6L162.7,288.4L161.9,289.3L162.0,292.2L159.8,294.6L161.2,297.2L160.1,298.9L160.6,302.8L157.4,311.2L161.4,311.0L162.7,312.6L166.2,313.8L169.0,311.4L171.1,312.6L172.8,316.6L171.1,319.7L170.8,322.2L171.6,324.0L169.7,330.1Z" data-dep="tolima"><title>Tolima: atención virtual</title></path>
+              <path class="dep is-present" d="M138.7,294.8L137.3,298.2L134.4,300.3L132.4,303.8L130.8,310.5L124.8,318.7L122.0,317.1L123.9,308.5L123.1,306.8L121.4,306.1L120.0,305.8L120.9,304.5L120.5,301.0L121.1,298.7L122.5,296.8L126.6,297.0L127.0,294.7L133.4,295.5L135.2,296.5L138.7,294.8Z" data-dep="quindio"><title>Quindío: atención presencial</title></path>
+              <path class="dep is-virtual" d="M172.3,332.7L169.7,330.1L171.6,324.0L170.8,322.2L171.1,319.7L172.8,316.6L171.1,312.6L169.0,311.4L166.2,313.8L162.7,312.6L161.4,311.0L157.4,311.2L160.6,302.8L160.1,298.9L161.2,297.2L159.8,294.6L162.0,292.2L161.9,289.3L162.7,288.4L162.2,285.6L163.5,284.8L162.7,283.2L163.2,280.2L162.7,272.9L166.0,267.1L166.0,264.6L165.3,264.0L166.8,263.2L166.0,262.7L167.1,258.0L166.6,256.1L170.8,254.7L174.3,255.5L178.1,253.3L179.0,254.6L179.9,258.7L179.0,261.3L181.1,263.9L181.6,266.1L185.2,267.3L187.1,267.2L187.4,268.5L190.7,270.2L194.2,267.7L194.5,266.2L198.3,263.1L198.5,265.2L203.7,267.0L206.1,269.8L206.3,272.8L207.9,274.1L210.3,281.8L208.8,283.3L208.9,284.6L207.7,286.8L208.6,288.4L212.7,288.8L214.4,291.0L214.4,291.8L215.8,292.3L217.0,294.3L219.6,294.6L220.0,296.3L223.9,296.8L226.1,294.1L223.0,313.0L219.9,311.0L214.5,309.6L209.9,310.9L208.4,310.4L207.5,309.6L206.4,305.9L204.9,303.5L202.1,302.1L197.8,305.9L200.0,314.1L197.7,314.0L193.8,315.9L192.2,317.5L189.9,318.1L186.1,321.4L185.0,321.4L185.7,318.3L187.2,316.3L185.0,312.3L186.7,308.8L186.4,305.5L190.2,300.4L190.9,298.0L189.6,297.3L190.2,296.1L190.3,291.1L187.7,290.4L185.7,294.3L184.2,295.5L184.5,296.7L182.3,298.1L183.7,299.9L184.0,302.9L182.6,306.7L183.6,306.9L182.7,312.0L181.4,314.3L180.9,317.5L180.5,317.9L178.5,316.9L177.9,317.4L176.8,320.4L176.9,325.0L172.3,332.7Z" data-dep="cundinamarca"><title>Cundinamarca: atención virtual</title></path>
+              <path class="dep is-present" d="M121.3,265.9L121.3,270.2L123.3,270.6L126.5,269.4L129.3,272.8L127.4,274.6L125.2,273.6L122.8,274.0L123.3,276.4L122.0,280.1L120.1,279.6L118.7,282.6L119.8,285.2L121.2,286.8L122.7,287.2L125.3,282.5L126.9,286.1L128.4,286.2L129.5,285.2L130.5,286.7L132.7,286.8L135.3,287.5L139.2,291.7L138.7,294.8L137.7,295.5L134.9,296.5L133.4,295.5L121.4,294.3L121.5,292.6L119.9,293.2L118.8,292.6L118.2,290.9L118.8,289.0L116.6,289.0L116.4,287.6L113.1,282.9L112.3,277.7L109.2,272.7L109.7,268.9L112.4,267.2L112.9,264.1L114.3,262.6L117.4,265.3L121.3,265.9Z" data-dep="risaralda"><title>Risaralda: atención presencial</title></path>
+            </g>
+            <g class="map-arcs"><path class="map-arc" d="M127.3,291.2 Q156.7,306.4 187.7,295.1"/><path class="map-arc" d="M127.3,291.2 Q141.5,265.4 132.0,237.5"/><path class="map-arc" d="M127.3,291.2 Q100.5,309.8 96.1,342.2"/><path class="map-arc" d="M127.3,291.2 Q194.6,183.6 160.8,61.3"/><path class="map-arc" d="M127.3,291.2 Q176.7,188.5 134.3,82.7"/><path class="map-arc" d="M127.3,291.2 Q194.5,269.3 223.6,204.9"/><path class="map-arc" d="M127.3,291.2 Q160.4,320.8 204.6,316.4"/><path class="map-arc" d="M127.3,291.2 Q68.0,345.6 68.1,426.0"/><path class="map-arc" d="M127.3,291.2 Q160.8,507.1 342.6,628.3"/></g>
+            <g class="map-cities"><circle class="map-city" cx="187.7" cy="295.1" r="3"><title>Bogotá: atención virtual</title></circle><circle class="map-city" cx="132.0" cy="237.5" r="3"><title>Medellín: atención virtual</title></circle><circle class="map-city" cx="96.1" cy="342.2" r="3"><title>Cali: atención virtual</title></circle><circle class="map-city" cx="160.8" cy="61.3" r="3"><title>Barranquilla: atención virtual</title></circle><circle class="map-city" cx="134.3" cy="82.7" r="3"><title>Cartagena: atención virtual</title></circle><circle class="map-city" cx="223.6" cy="204.9" r="3"><title>Bucaramanga: atención virtual</title></circle><circle class="map-city" cx="204.6" cy="316.4" r="3"><title>Villavicencio: atención virtual</title></circle><circle class="map-city" cx="68.1" cy="426.0" r="3"><title>Pasto: atención virtual</title></circle><circle class="map-city" cx="342.6" cy="628.3" r="3"><title>Leticia: atención virtual</title></circle></g>
+            <g class="map-hq" transform="translate(127.3 291.2)">
+              <circle class="hq-pulse" r="8"/><circle class="hq-pulse hq-pulse-2" r="8"/><circle class="hq-dot" r="5.5"/>
+            </g>
+            <g class="map-hq-label" transform="translate(139.3 295.2)"><text>Pereira</text></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PREGUNTAS FRECUENTES ===== -->
     <section class="faq" id="preguntas" aria-labelledby="faqTitle">
       <div class="faq-inner">
         <div class="faq-intro">
-          <p class="section-label"><span class="label-num">03</span> Eje Cafetero</p>
-          <h2 class="faq-title" id="faqTitle">Abogados y abogadas en <em>Pereira</em> y todo el Eje Cafetero.</h2>
-          <p class="faq-sub">Somos una firma de abogados con sede en Pereira, Risaralda. Nuestro equipo de abogados y abogadas asesora y representa a personas y empresas en Pereira, Dosquebradas, Santa Rosa de Cabal, Armenia, Manizales y el resto del Eje Cafetero, con atención presencial y virtual en toda Colombia.</p>
-          <ul class="faq-cities" aria-label="Ciudades donde atendemos">
-            <li>Pereira</li><li>Dosquebradas</li><li>Santa Rosa de Cabal</li><li>Armenia</li><li>Manizales</li><li>Cartago</li>
-          </ul>
+          <p class="section-label"><span class="label-num">04</span> Preguntas frecuentes</p>
+          <h2 class="faq-title" id="faqTitle">Resolvemos tus <em>dudas</em> antes de empezar.</h2>
+          <p class="faq-sub">Si tu pregunta no está aquí, escríbenos por WhatsApp. La primera conversación es sin compromiso.</p>
+          <a href="https://wa.me/573153725973" target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic><span>Preguntar por WhatsApp</span></a>
         </div>
         <div class="faq-list">
-          <h3 class="faq-list-title">Preguntas frecuentes</h3>
           <details class="faq-item">
             <summary>¿Dónde encuentro abogados en Pereira?</summary>
-            <p>Abogados del Eje tiene su oficina en la Carrera 17A # 83-09, barrio La Villa, en Pereira, Risaralda. Puedes visitarnos, llamarnos al 315 372 5973 o escribirnos por WhatsApp para agendar tu consulta.</p>
+            <div class="faq-answer"><p>Abogados del Eje tiene su oficina en la Carrera 17A # 83-09, barrio La Villa, en Pereira, Risaralda. Puedes visitarnos, llamarnos al 315 372 5973 o escribirnos por WhatsApp para agendar tu consulta.</p></div>
           </details>
           <details class="faq-item">
             <summary>¿Atienden casos en Armenia, Manizales y el resto del Eje Cafetero?</summary>
-            <p>Sí. Nuestros abogados y abogadas atienden casos en Pereira, Dosquebradas, Santa Rosa de Cabal, Armenia, Manizales y los demás municipios del Eje Cafetero. También ofrecemos asesoría virtual para clientes en otras ciudades de Colombia.</p>
+            <div class="faq-answer"><p>Sí. Nuestros abogados y abogadas atienden casos en Pereira, Dosquebradas, Santa Rosa de Cabal, Armenia, Manizales y los demás municipios del Eje Cafetero. También ofrecemos asesoría virtual para clientes en otras ciudades de Colombia.</p></div>
           </details>
           <details class="faq-item">
             <summary>¿Qué tipo de casos llevan?</summary>
-            <p>Derecho laboral (despidos, liquidaciones, acoso laboral), accidentes laborales y reclamaciones ante la ARL, accidentes de tránsito, derecho de familia (divorcios, custodia, alimentos, sucesiones), derecho civil, derecho administrativo (tutelas, nulidades, reparación directa) y responsabilidad civil contractual y extracontractual.</p>
+            <div class="faq-answer"><p>Derecho laboral (despidos, liquidaciones, acoso laboral), accidentes laborales y reclamaciones ante la ARL, accidentes de tránsito, derecho de familia (divorcios, custodia, alimentos, sucesiones), derecho civil, derecho administrativo (tutelas, nulidades, reparación directa) y responsabilidad civil contractual y extracontractual.</p></div>
           </details>
           <details class="faq-item">
             <summary>¿Cuánto cuesta la primera consulta?</summary>
-            <p>La primera conversación para conocer tu caso es sin compromiso. Si decides continuar, te explicamos los honorarios de forma clara desde el inicio, sin sorpresas ni letra pequeña.</p>
+            <div class="faq-answer"><p>La primera conversación para conocer tu caso es sin compromiso. Si decides continuar, te explicamos los honorarios de forma clara desde el inicio, sin sorpresas ni letra pequeña.</p></div>
           </details>
           <details class="faq-item">
             <summary>¿Cómo agendo una cita con un abogado?</summary>
-            <p>Escríbenos por WhatsApp al 315 372 5973 o llámanos. Atendemos de lunes a viernes de 8:00 a. m. a 6:00 p. m. y los sábados de 8:00 a. m. a 12:00 m.</p>
+            <div class="faq-answer"><p>Escríbenos por WhatsApp al 315 372 5973 o llámanos. Atendemos de lunes a viernes de 8:00 a. m. a 6:00 p. m. y los sábados de 8:00 a. m. a 12:00 m.</p></div>
           </details>
         </div>
       </div>
@@ -468,7 +560,7 @@
     <!-- ===== CONTACTO ===== -->
     <section class="contacto" id="contacto">
       <div class="contacto-inner">
-        <p class="section-label"><span class="label-num">04</span> Contacto</p>
+        <p class="section-label"><span class="label-num">05</span> Contacto</p>
         <h2 class="contacto-title" data-reveal>Hablemos de <em>tu caso.</em></h2>
         <p class="contacto-sub" data-reveal>La primera conversación es el primer paso hacia la solución. Escríbenos o visítanos en Pereira.</p>
         <div class="contacto-grid">
@@ -500,31 +592,38 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="assets/logo-light.png" alt="Abogados del Eje" class="footer-logo-img" width="438" height="246" />
+        <img src="/assets/logo-light.png" alt="Abogados del Eje" class="footer-logo-img logo-for-dark" width="438" height="246" loading="lazy" />
+        <img src="/assets/logo-dark.png" alt="" aria-hidden="true" class="footer-logo-img logo-for-light" width="438" height="246" loading="lazy" />
         <p class="footer-tag">Abogados y abogadas · Pereira, Risaralda · Eje Cafetero</p>
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
         <a href="tel:+573153725973">315 372 5973</a>
-        <p>Carrera 17A # 83-09, La Villa<br/>Pereira, Risaralda</p>
+        <a href="https://wa.me/573153725973" target="_blank" rel="noopener">WhatsApp</a>
+        <p>Carrera 17A # 83-09, barrio La Villa<br/>Pereira, Risaralda</p>
+        <p>Lun a vie 8:00 a 18:00<br/>Sáb 8:00 a 12:00</p>
       </div>
       <div class="footer-col">
-        <h4>Áreas</h4>
-        <a href="#areas">Laboral</a>
-        <a href="#areas">Familia</a>
-        <a href="#areas">Civil y Administrativo</a>
-        <a href="#areas">Responsabilidad civil</a>
+        <h4>Servicios</h4>
+        <a href="/abogado-laboral-pereira/">Derecho laboral</a>
+        <a href="/abogado-accidente-laboral-pereira/">Accidente laboral</a>
+        <a href="/abogado-accidentes-de-transito-pereira/">Accidentes de tránsito</a>
+        <a href="/abogado-de-familia-pereira/">Derecho de familia</a>
+        <a href="/abogado-civil-pereira/">Derecho civil</a>
+        <a href="/abogado-administrativo-pereira/">Derecho administrativo</a>
+        <a href="/abogado-responsabilidad-civil-pereira/">Responsabilidad civil</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span id="year"></span> Abogados del Eje. Todos los derechos reservados.</p>
-      <button class="to-top" id="toTop" data-magnetic>Volver arriba ↑</button>
+      <p>© <span id="year">2026</span> Abogados del Eje. Todos los derechos reservados.</p>
+      <a class="to-top" id="toTop" href="#hero">Inicio ↑</a>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/vendor/lenis.min.js" defer></script>
+  <script src="/site.js" defer></script>
+  <script src="/app.js" defer></script>
 </body>
 </html>

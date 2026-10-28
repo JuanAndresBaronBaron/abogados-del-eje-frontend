@@ -3,6 +3,11 @@
    GSAP + ScrollTrigger + Lenis
    ============================================================ */
 
+if (!window.gsap || !window.ScrollTrigger) {
+  /* Animation library unavailable: show the static page instead of a stuck loader. */
+  document.documentElement.classList.add("no-gsap");
+} else {
+
 gsap.registerPlugin(ScrollTrigger);
 
 const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -33,8 +38,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     if (id.length > 1 && document.querySelector(id)) {
       e.preventDefault();
       scrollToTarget(id);
-      menuOverlay.classList.remove("is-open");
-      navBurger.classList.remove("is-open");
+      window.ADE?.setMenu(false);
     }
   });
 });
@@ -84,16 +88,9 @@ ScrollTrigger.create({
   },
 });
 
-/* Mobile menu */
-const navBurger = document.getElementById("navBurger");
-const menuOverlay = document.getElementById("menuOverlay");
-navBurger.addEventListener("click", () => {
-  const open = menuOverlay.classList.toggle("is-open");
-  navBurger.classList.toggle("is-open", open);
-  if (lenis) open ? lenis.stop() : lenis.start();
-});
-menuOverlay.addEventListener("transitionend", () => {
-  if (!menuOverlay.classList.contains("is-open") && lenis) lenis.start();
+/* Mobile menu (opened/closed by site.js): freeze smooth scroll while open */
+document.addEventListener("ade:menu", (e) => {
+  if (lenis) e.detail ? lenis.stop() : lenis.start();
 });
 
 /* Scroll progress bar */
@@ -135,7 +132,7 @@ if (!isTouch && !prefersReduced) {
     gsap.set(cursor, { x: pos.x, y: pos.y });
   });
 
-  document.querySelectorAll("a, button, .area-card, .value-card").forEach((el) => {
+  document.querySelectorAll("a, button, summary, .area-card, .value-card, .legend-item").forEach((el) => {
     el.addEventListener("mouseenter", () => cursor.classList.add("is-hover"));
     el.addEventListener("mouseleave", () => cursor.classList.remove("is-hover"));
   });
@@ -311,12 +308,20 @@ if (!prefersReduced) {
     },
   });
 
-  /* spotlight follows the cursor inside each card */
+  /* spotlight follows the cursor inside each card, with a subtle 3D tilt */
   document.querySelectorAll(".area-card").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
-      card.style.setProperty("--my", ((e.clientY - r.top) / r.height) * 100 + "%");
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.setProperty("--mx", px * 100 + "%");
+      card.style.setProperty("--my", py * 100 + "%");
+      if (!isTouch) {
+        gsap.to(card, { y: -8, rotateY: (px - 0.5) * 8, rotateX: (0.5 - py) * 8, transformPerspective: 900, duration: 0.5, ease: "power2.out" });
+      }
+    });
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, { y: 0, rotateY: 0, rotateX: 0, duration: 0.8, ease: "power3.out" });
     });
   });
 })();
@@ -465,9 +470,56 @@ document.querySelectorAll("[data-count]").forEach((el) => {
   });
 });
 
+/* ============================================================
+   COBERTURA — the map draws itself, then the Eje Cafetero lights up
+   ============================================================ */
+(function coverageMap() {
+  const map = document.querySelector(".co-map");
+  if (!map || prefersReduced) return;
+  const deps = map.querySelectorAll(".dep");
+  const present = map.querySelectorAll(".is-present");
+  const arcs = map.querySelectorAll(".map-arc");
+  const cities = map.querySelectorAll(".map-city");
+  const hq = map.querySelectorAll(".map-hq, .map-hq-label");
+
+  deps.forEach((d) => {
+    const len = d.getTotalLength();
+    d.style.strokeDasharray = len;
+    d.style.strokeDashoffset = len;
+  });
+  gsap.set(deps, { fillOpacity: 0.15 });
+  gsap.set([arcs, cities, hq], { opacity: 0 });
+  gsap.set(cities, { scale: 0, transformOrigin: "center", transformBox: "fill-box" });
+
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: map, start: "top 92%", once: true },
+    onComplete: () => deps.forEach((d) => { d.style.strokeDasharray = ""; d.style.strokeDashoffset = ""; }),
+  });
+  tl.to(deps, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut", stagger: { each: 0.012, from: "random" } })
+    .to(map.querySelectorAll(".is-virtual"), { fillOpacity: 1, duration: 0.7, stagger: { each: 0.01, from: "random" } }, "-=0.7")
+    .to(present, { fillOpacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4")
+    .fromTo(present, { scale: 1.12, transformOrigin: "center", transformBox: "fill-box" }, { scale: 1, duration: 1, ease: "elastic.out(1, 0.5)" }, "<")
+    .to(hq, { opacity: 1, duration: 0.5 }, "-=0.6")
+    .to(arcs, { opacity: 0.75, duration: 0.6, stagger: 0.08 }, "-=0.2")
+    .to(cities, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: "back.out(3)" }, "<");
+
+  /* gentle float */
+  gsap.to(map, { y: -10, duration: 4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+})();
+
+/* Marquee reacts to scroll velocity */
+(function marqueeVelocity() {
+  const track = document.getElementById("marqueeTrack");
+  if (!track || prefersReduced) return;
+  const skew = gsap.quickTo(track, "skewX", { duration: 0.4, ease: "power3.out" });
+  ScrollTrigger.create({
+    onUpdate: (self) => skew(gsap.utils.clamp(-12, 12, self.getVelocity() / -250)),
+  });
+})();
+
 /* Section titles get a soft parallax drift */
 if (!prefersReduced) {
-  gsap.utils.toArray(".contacto-title, .firma-title").forEach((el) => {
+  gsap.utils.toArray(".contacto-title, .firma-title, .cobertura-title, .faq-title").forEach((el) => {
     gsap.from(el, {
       yPercent: 18,
       ease: "none",
@@ -479,5 +531,9 @@ if (!prefersReduced) {
 /* ============================================================
    FOOTER
    ============================================================ */
-document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("toTop").addEventListener("click", () => scrollToTarget("#hero"));
+document.getElementById("toTop")?.addEventListener("click", () => scrollToTarget("#hero"));
+
+/* Recalculate pinned sections once fonts and images have settled */
+window.addEventListener("load", () => ScrollTrigger.refresh());
+
+}
