@@ -34,4 +34,4 @@ npx serve .
 ## Datos de contacto usados
 
 - Tel/WhatsApp: 315 372 5973 (`wa.me/573153725973`)
-- Dirección: Calle 39 # 7-19, Piso 2, Pereira, Risaralda
+- Dirección: Carrera 17A # 83-09, barrio La Villa, Pereira, Risaralda
