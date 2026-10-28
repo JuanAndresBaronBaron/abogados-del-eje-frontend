@@ -849,6 +849,83 @@ em { font-style: italic; }
   to { transform: translateX(-50%); }
 }
 
+/* ============ Cobertura + Preguntas frecuentes ============ */
+.faq {
+  background: var(--navy-800);
+  padding: clamp(90px, 14vh, 160px) clamp(24px, 5vw, 64px);
+  border-bottom: 1px solid var(--white-faint);
+}
+.faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.faq-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+}
+.faq-title em { color: var(--wood-light); }
+.faq-sub {
+  margin: 24px 0 28px;
+  max-width: 520px;
+  color: var(--white-dim);
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+.faq-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.faq-cities li {
+  padding: 8px 16px;
+  border: 1px solid rgba(201, 150, 98, 0.4);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--wood-pale);
+}
+.faq-list-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.faq-item { border-bottom: 1px solid var(--white-faint); }
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--wood-light);
+  transition: transform 0.3s var(--ease-out);
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 0 22px;
+  color: var(--white-dim);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
 /* ============ Contacto ============ */
 .contacto {
   background:
@@ -996,6 +1073,7 @@ em { font-style: italic; }
 
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
+  .faq-inner { grid-template-columns: 1fr; }
   .nav-links, .btn-nav { display: none; }
   .nav-burger { display: flex; }
   .firma-grid { grid-template-columns: 1fr; }
