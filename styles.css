@@ -538,7 +538,15 @@ em { font-style: italic; }
   margin-bottom: clamp(22px, 4vh, 40px);
   opacity: 0;
 }
-.eyebrow-line { width: 44px; height: 1px; background: var(--accent-strong); }
+/* The eyebrow lives inside the H1 (visible location line): reset the display type */
+.hero-title .hero-eyebrow {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.eyebrow-line { width: 44px; height: 1px; background: var(--accent-strong); flex: none; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 500;
