@@ -3,6 +3,20 @@
    GSAP + ScrollTrigger + Lenis
    ============================================================ */
 
+/* Areas carousel hint (shown by CSS only when the cards become a swipe
+   carousel: phones, reduced motion, or no animation library). */
+(function areasHint() {
+  const track = document.getElementById("areasTrack");
+  if (!track || document.querySelector(".areas-hint")) return;
+  const n = track.querySelectorAll(".area-card:not(.area-card-end)").length;
+  const hint = document.createElement("p");
+  hint.className = "areas-hint";
+  hint.setAttribute("aria-hidden", "true");
+  hint.textContent = "Desliza para ver " + (n ? "las " + n + " áreas" : "todas las áreas") + " →";
+  const anchor = document.querySelector(".areas-progress") || track;
+  anchor.parentNode.insertBefore(hint, anchor.nextSibling === track ? track : anchor.nextSibling);
+})();
+
 if (!window.gsap || !window.ScrollTrigger) {
   /* Animation library unavailable: show the static page instead of a stuck loader. */
   document.documentElement.classList.add("no-gsap");
@@ -13,9 +27,15 @@ gsap.registerPlugin(ScrollTrigger);
 const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
-/* ---------- Smooth scroll (Lenis) ---------- */
+const DESKTOP = "(min-width: 901px)";
+const MOBILE = "(max-width: 900px)";
+const mm = gsap.matchMedia();
+const FOCUSABLE = 'a[href], button, summary, input, select, textarea, [tabindex]';
+
+/* ---------- Smooth scroll (Lenis) — desktop pointers only; native
+   touch scrolling is already smooth and cheaper on phones ---------- */
 let lenis = null;
-if (!prefersReduced) {
+if (!prefersReduced && !isTouch && window.Lenis) {
   lenis = new Lenis({
     duration: 1.15,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -26,9 +46,26 @@ if (!prefersReduced) {
   gsap.ticker.lagSmoothing(0);
 }
 
+/* Move keyboard focus to the section we scrolled to (WCAG 2.4.3) */
+function focusSection(el) {
+  if (!el) return;
+  if (!el.matches(FOCUSABLE)) el.setAttribute("tabindex", "-1");
+  try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
+}
+
 function scrollToTarget(target) {
-  if (lenis) lenis.scrollTo(target, { offset: 0, duration: 1.4 });
-  else document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+  const el = typeof target === "string" ? document.querySelector(target) : target;
+  if (!el) return;
+  if (lenis) {
+    lenis.scrollTo(el, { offset: 0, duration: 1.4, onComplete: () => focusSection(el) });
+  } else {
+    el.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth" });
+    focusSection(el);
+  }
+  if (typeof target === "string" && history.pushState) {
+    const url = target === "#hero" ? location.pathname + location.search : target;
+    if (url !== location.hash) history.pushState(null, "", url);
+  }
 }
 
 /* Anchor links through Lenis */
@@ -47,7 +84,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
    PRELOADER
    ============================================================ */
 const loader = document.getElementById("loader");
-const loaderLetters = loader.querySelectorAll(".loader-word span");
+const loaderLetters = loader ? loader.querySelectorAll(".loader-word span") : [];
 
 /* Split the hero headline into animatable words */
 const heroWords = [];
@@ -57,23 +94,57 @@ document.querySelectorAll(".hero-title .line").forEach((line) => {
   heroWords.push(...line.querySelectorAll(".word"));
 });
 
-/* Initial states (before the timeline starts) */
-gsap.set(heroWords, { yPercent: 115, rotate: 3 });
-gsap.set("#heroSub", { y: 20 });
+const HERO_BITS = [".hero-eyebrow", "#heroSub", "#heroCta", "#heroScroll"];
+function showHeroNow() {
+  if (loader) gsap.set(loader, { display: "none" });
+  gsap.set(heroWords, { yPercent: 0, rotate: 0 });
+  gsap.set(HERO_BITS, { opacity: 1, y: 0 });
+}
 
-const intro = gsap.timeline({ defaults: { ease: "power4.out" } });
-intro
-  .to(loaderLetters, { y: 0, duration: 1, stagger: 0.045 }, 0.2)
-  .to("#loaderBar", { scaleX: 1, duration: 1.3, ease: "power2.inOut" }, 0.4)
-  .to(loaderLetters, { y: "-120%", duration: 0.7, stagger: 0.025, ease: "power3.in" }, "+=0.25")
-  .to("#loaderBar", { opacity: 0, duration: 0.3 }, "<")
-  .to(loader, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, "-=0.2")
-  .set(loader, { display: "none" })
-  .to(heroWords, { yPercent: 0, rotate: 0, duration: 1.3, stagger: 0.09, ease: "power4.out" }, "-=0.55")
-  .to(".hero-eyebrow", { opacity: 1, duration: 0.9 }, "-=0.9")
-  .to("#heroSub", { opacity: 1, y: 0, duration: 0.9 }, "-=0.7")
-  .to("#heroCta", { opacity: 1, duration: 0.9 }, "-=0.6")
-  .to("#heroScroll", { opacity: 1, duration: 0.9 }, "-=0.5");
+/* The intro plays once per visit. It is skipped with reduced motion, when
+   arriving at a section (/#contacto) and on repeat views in the session. */
+let skipIntro = prefersReduced || !loader || location.hash.length > 1;
+try {
+  if (sessionStorage.getItem("ade-intro-seen")) skipIntro = true;
+  sessionStorage.setItem("ade-intro-seen", "1");
+} catch (e) { /* storage blocked */ }
+
+if (skipIntro) {
+  showHeroNow();
+} else {
+  /* While the loader covers the page, the content behind it is not reachable */
+  const gated = [document.querySelector("main"), document.getElementById("nav")].filter(Boolean);
+  gated.forEach((el) => { el.inert = true; });
+  const SKIP_EVENTS = ["keydown", "pointerdown", "wheel", "touchstart"];
+  let released = false;
+  const release = () => {
+    if (released) return;
+    released = true;
+    gated.forEach((el) => { el.inert = false; });
+    SKIP_EVENTS.forEach((ev) => window.removeEventListener(ev, skip, true));
+  };
+  /* any key, click, tap or wheel finishes the intro at once */
+  const skip = () => { if (!released) intro.progress(1); };
+
+  gsap.set(heroWords, { yPercent: 115, rotate: 3 });
+  gsap.set("#heroSub", { y: 20 });
+
+  var intro = gsap.timeline({ defaults: { ease: "power4.out" } });
+  intro
+    .to(loaderLetters, { y: 0, duration: 0.5, stagger: 0.02 }, 0.05)
+    .to("#loaderBar", { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 0.1)
+    .to(loaderLetters, { y: "-120%", duration: 0.4, stagger: 0.012, ease: "power3.in" }, 0.78)
+    .to("#loaderBar", { opacity: 0, duration: 0.25 }, "<")
+    .to(loader, { yPercent: -100, duration: 0.55, ease: "power4.inOut" }, 1.05)
+    .set(loader, { display: "none" })
+    .add(release)
+    .to(heroWords, { yPercent: 0, rotate: 0, duration: 1.1, stagger: 0.07, ease: "power4.out" }, "-=0.45")
+    .to(".hero-eyebrow", { opacity: 1, duration: 0.8 }, "-=0.9")
+    .to("#heroSub", { opacity: 1, y: 0, duration: 0.8 }, "-=0.7")
+    .to("#heroCta", { opacity: 1, duration: 0.8 }, "-=0.6")
+    .to("#heroScroll", { opacity: 1, duration: 0.8 }, "-=0.5");
+  SKIP_EVENTS.forEach((ev) => window.addEventListener(ev, skip, { capture: true, passive: true }));
+}
 
 /* ============================================================
    NAV — glass on scroll, hide on scroll down
@@ -104,9 +175,10 @@ gsap.set("#scrollProgress", { scaleX: 0 });
 /* ============================================================
    CUSTOM CURSOR + MAGNETIC ELEMENTS
    ============================================================ */
-if (!isTouch && !prefersReduced) {
+if (!isTouch && !prefersReduced && document.getElementById("cursor") && document.getElementById("cursorDot")) {
   const cursor = document.getElementById("cursor");
   const dot = document.getElementById("cursorDot");
+  document.documentElement.classList.add("has-cursor");
   const pos = { x: innerWidth / 2, y: innerHeight / 2 };
   const mouse = { x: pos.x, y: pos.y };
 
@@ -157,6 +229,7 @@ if (!isTouch && !prefersReduced) {
    ============================================================ */
 (function heroParticles() {
   const canvas = document.getElementById("heroCanvas");
+  if (!canvas) return;
   const ctx = canvas.getContext("2d");
   let w, h, dpr, particles = [], running = true;
   const mouse = { x: -9999, y: -9999 };
@@ -259,6 +332,7 @@ if (!prefersReduced) {
    ============================================================ */
 (function manifesto() {
   const el = document.getElementById("manifestoText");
+  if (!el) return;
   const KEY_WORDS = new Set(["rigor,", "estrategia", "humanidad.", "precisión", "final."]);
   el.innerHTML = el.textContent
     .split(/\s+/)
@@ -270,16 +344,33 @@ if (!prefersReduced) {
     words.forEach((w) => w.classList.add("is-lit"));
     return;
   }
-  ScrollTrigger.create({
-    trigger: "#manifesto",
-    start: "top top",
-    end: "+=160%",
-    pin: true,
-    scrub: true,
-    onUpdate: (self) => {
-      const lit = Math.floor(self.progress * 1.15 * words.length);
-      words.forEach((w, i) => w.classList.toggle("is-lit", i < lit));
-    },
+  mm.add({ desktop: DESKTOP, mobile: MOBILE }, (ctx) => {
+    if (ctx.conditions.desktop) {
+      /* pinned: words light up with the scroll */
+      ScrollTrigger.create({
+        trigger: "#manifesto",
+        start: "top top",
+        end: "+=160%",
+        pin: true,
+        scrub: true,
+        onUpdate: (self) => {
+          const lit = Math.floor(self.progress * 1.15 * words.length);
+          words.forEach((w, i) => w.classList.toggle("is-lit", i < lit));
+        },
+      });
+      return;
+    }
+    /* phones: no pin, the words light up once in a quick cascade */
+    ScrollTrigger.create({
+      trigger: "#manifesto",
+      start: "top 75%",
+      once: true,
+      onEnter: () => words.forEach((w, i) => {
+        w.style.transitionDelay = Math.min(i * 0.035, 1.4) + "s";
+        w.classList.add("is-lit");
+      }),
+    });
+    return () => words.forEach((w) => { w.style.transitionDelay = ""; w.classList.remove("is-lit"); });
   });
 })();
 
@@ -288,24 +379,54 @@ if (!prefersReduced) {
    ============================================================ */
 (function horizontalAreas() {
   const track = document.getElementById("areasTrack");
-  if (prefersReduced) return;
+  if (!track || prefersReduced) return;
 
   const getDistance = () => Math.max(0, track.scrollWidth - innerWidth + 64);
 
-  gsap.to(track, {
-    x: () => -getDistance(),
-    ease: "none",
-    scrollTrigger: {
-      trigger: "#areas",
-      start: "top top",
-      end: () => "+=" + getDistance(),
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      onUpdate: (self) => {
-        gsap.set("#areasProgress", { scaleX: self.progress });
+  mm.add({ desktop: DESKTOP, mobile: MOBILE }, (ctx) => {
+    if (ctx.conditions.mobile) {
+      /* phones: native swipe carousel (CSS); the bar follows the swipe */
+      const onScroll = () => {
+        const max = track.scrollWidth - track.clientWidth;
+        gsap.set("#areasProgress", { scaleX: max > 0 ? track.scrollLeft / max : 0 });
+      };
+      track.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      return () => track.removeEventListener("scroll", onScroll);
+    }
+
+    const tween = gsap.to(track, {
+      x: () => -getDistance(),
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#areas",
+        start: "top top",
+        end: () => "+=" + getDistance(),
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          gsap.set("#areasProgress", { scaleX: self.progress });
+        },
       },
-    },
+    });
+    const st = tween.scrollTrigger;
+
+    /* Keyboard: bring the focused card into view inside the pinned track */
+    const onFocus = (e) => {
+      const card = e.target.closest(".area-card");
+      if (!card || !st) return;
+      const dist = getDistance() || 1;
+      const ratio = Math.min(1, Math.max(0, (card.offsetLeft - 64) / dist));
+      const y = st.start + ratio * (st.end - st.start);
+      if (lenis) lenis.scrollTo(y, { immediate: true });
+      else window.scrollTo(0, y);
+      /* undo any native scroll the browser did inside the clipped wrapper */
+      const pin = track.parentElement;
+      if (pin && pin.scrollLeft) pin.scrollLeft = 0;
+    };
+    track.addEventListener("focusin", onFocus);
+    return () => track.removeEventListener("focusin", onFocus);
   });
 
   /* spotlight follows the cursor inside each card, with a subtle 3D tilt */
@@ -331,9 +452,13 @@ if (!prefersReduced) {
    ============================================================ */
 (function balanza() {
   const canvas = document.getElementById("balanzaCanvas");
+  const section = document.getElementById("balanza");
+  if (!canvas || !section) return;
   const ctx = canvas.getContext("2d");
   let w, h, dpr;
   let progress = prefersReduced ? 1 : 0;
+  /* static layout: captions stacked below the drawing instead of over it */
+  let staticLayout = false;
 
   /* The scale, defined as ordered strokes in a 400x400 design space
      centered on (0, 0). Drawn sequentially as progress goes 0 → 1. */
@@ -370,7 +495,7 @@ if (!prefersReduced) {
     /* Reserve a band at the bottom for the step captions, then center
        and size the scale within the remaining area so its base never
        overlaps the "Justicia" / "Precisión" text. */
-    const reserve = Math.min(h * 0.32, 260);
+    const reserve = staticLayout ? 0 : Math.min(h * 0.32, 260);
     const avail = h - reserve;
     const scale = Math.min(w, avail) / 480;
     ctx.save();
@@ -417,22 +542,49 @@ if (!prefersReduced) {
   window.addEventListener("resize", resize);
 
   const steps = document.querySelectorAll(".balanza-step");
+  function setStatic(on) {
+    staticLayout = on;
+    section.classList.toggle("is-static", on);
+    resize();
+  }
   if (prefersReduced) {
-    steps[steps.length - 1].classList.add("is-active");
+    /* all three captions stay visible, the scale is drawn complete */
+    setStatic(true);
+    steps.forEach((s) => s.classList.add("is-active"));
     return;
   }
-  ScrollTrigger.create({
-    trigger: "#balanza",
-    start: "top top",
-    end: "+=250%",
-    pin: true,
-    scrub: 0.4,
-    onUpdate: (self) => {
-      progress = self.progress;
+  mm.add({ desktop: DESKTOP, mobile: MOBILE }, (ctx2) => {
+    if (ctx2.conditions.mobile) {
+      /* phones: no pin; the scale draws itself once when it comes into view */
+      setStatic(true);
+      progress = 0;
       draw();
-      const idx = Math.min(2, Math.floor(self.progress * 3));
-      steps.forEach((s, i) => s.classList.toggle("is-active", i === idx));
-    },
+      const anim = { p: 0 };
+      ScrollTrigger.create({
+        trigger: canvas,
+        start: "top 80%",
+        once: true,
+        onEnter: () => gsap.to(anim, {
+          p: 1, duration: 1.6, ease: "power2.out",
+          onUpdate: () => { progress = anim.p; draw(); },
+        }),
+      });
+      return () => setStatic(false);
+    }
+    setStatic(false);
+    ScrollTrigger.create({
+      trigger: "#balanza",
+      start: "top top",
+      end: "+=250%",
+      pin: true,
+      scrub: 0.4,
+      onUpdate: (self) => {
+        progress = self.progress;
+        draw();
+        const idx = Math.min(2, Math.floor(self.progress * 3));
+        steps.forEach((s, i) => s.classList.toggle("is-active", i === idx));
+      },
+    });
   });
 })();
 
@@ -455,6 +607,7 @@ if (!prefersReduced) {
 document.querySelectorAll("[data-count]").forEach((el) => {
   const target = +el.dataset.count;
   if (prefersReduced) { el.textContent = target; return; }
+  el.textContent = 0;
   ScrollTrigger.create({
     trigger: el,
     start: "top 88%",
@@ -533,7 +686,21 @@ if (!prefersReduced) {
    ============================================================ */
 document.getElementById("toTop")?.addEventListener("click", () => scrollToTarget("#hero"));
 
-/* Recalculate pinned sections once fonts and images have settled */
-window.addEventListener("load", () => ScrollTrigger.refresh());
+/* Recalculate pinned sections once fonts and images have settled; then,
+   if we arrived at a section (/#contacto from another page), go there now
+   that the pinned spacers have their real height. */
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
+  const id = location.hash;
+  if (id.length > 1) {
+    let el = null;
+    try { el = document.querySelector(id); } catch (e) { /* not a valid selector */ }
+    if (el) {
+      if (lenis) lenis.scrollTo(el, { immediate: true, force: true });
+      else el.scrollIntoView();
+    }
+  }
+});
+document.fonts?.ready.then(() => ScrollTrigger.refresh());
 
 }

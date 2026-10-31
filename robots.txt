@@ -1,8 +1,11 @@
-# Buscadores tradicionales y asistentes de IA son bienvenidos.
+# Abogados del Eje — https://abogadosdeleje.com
+# Buscadores tradicionales (Google, Bing, etc.) y asistentes de IA son bienvenidos.
 User-agent: *
 Allow: /
+# Imágenes de campañas pagadas: no compiten con las páginas de servicio
+Disallow: /ads/
 
-# Asistentes de IA (ChatGPT, Claude, Gemini, Perplexity, Copilot, Apple)
+# Asistentes y buscadores de IA (ChatGPT, Claude, Gemini, Perplexity, Apple)
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -13,7 +16,12 @@ User-agent: Google-Extended
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 User-agent: Applebot-Extended
-User-agent: Bingbot
+Allow: /
+Disallow: /ads/
+
+# Vista previa de enlaces en Facebook / WhatsApp
+User-agent: facebookexternalhit
+User-agent: Facebot
 Allow: /
 
 Sitemap: https://abogadosdeleje.com/sitemap.xml

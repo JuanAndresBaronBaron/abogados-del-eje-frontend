@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://abogadosdeleje.com/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://abogadosdeleje.com/og-image.jpg</image:loc>
@@ -11,42 +11,72 @@
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-laboral-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-accidente-laboral-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-accidentes-de-transito-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-de-familia-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-civil-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-administrativo-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/abogado-responsabilidad-civil-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://abogadosdeleje.com/divorcio-pereira/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abogadosdeleje.com/cuota-alimentaria-pereira/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abogadosdeleje.com/custodia-de-hijos-pereira/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abogadosdeleje.com/sucesiones-pereira/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abogadosdeleje.com/despido-sin-justa-causa-pereira/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abogadosdeleje.com/accion-de-tutela-pereira/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abogadosdeleje.com/politica-de-privacidad/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.2</priority>
   </url>
 </urlset>
