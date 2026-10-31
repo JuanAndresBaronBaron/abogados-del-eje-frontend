@@ -1,14 +1,18 @@
 {
+  "id": "/",
   "name": "Abogados del Eje",
   "short_name": "Abogados del Eje",
-  "description": "Firma de abogados en Pereira, Risaralda.",
+  "description": "Abogados y abogadas en Pereira, Risaralda y el Eje Cafetero: laboral, familia, civil, administrativo, accidentes de tránsito y responsabilidad civil.",
   "lang": "es-CO",
+  "dir": "ltr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#081020",
   "theme_color": "#0A1628",
+  "categories": ["business"],
   "icons": [
-    { "src": "assets/favicon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
